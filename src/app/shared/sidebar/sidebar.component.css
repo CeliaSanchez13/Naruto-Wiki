@@ -1,7 +1,7 @@
-.navbar-brand, .nav-link.active{
+.navbar-brand{
     font-weight: bold;
 }
-.nav-link, .nav-link.active, .navbar-brand{
+.nav-link, .navbar-brand{
     color: white;
 }
 
