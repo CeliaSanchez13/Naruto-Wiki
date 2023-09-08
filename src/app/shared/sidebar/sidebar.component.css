@@ -1,0 +1,7 @@
+.navbar-brand, .nav-link.active{
+    font-weight: bold;
+}
+.nav-link, .nav-link.active, .navbar-brand{
+    color: white;
+}
+
