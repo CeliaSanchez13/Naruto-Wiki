@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'shared-search-box',
@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./search-box.component.css']
 })
 export class SearchBoxComponent {
+
+
+
+  @Input()
+  placeholder: string = '';
 
 }

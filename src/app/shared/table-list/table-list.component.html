@@ -4,32 +4,39 @@
 </div>
 
 <ng-template #table>
-    <table class="table table-hover">
+    
+    <ngb-pagination class="d-flex justify-content-end" 
+                    [collectionSize]="array.length" 
+                    [pageSize]="pageSize"
+                    [(page)]="page" 
+                    [maxSize]="5"
+                    [rotate]="true"
+                    [boundaryLinks]="true"></ngb-pagination>
+    <table class="table table-hover table-secondary mt-5">
         <thead>
             <tr>
                 <th>#</th>
                 <th>Name</th>
                 <th>Image</th>
                 <th>Sex</th>
-                <th>Capital</th>
-                <th>Población</th>
-                <th>#</th>
+                <th>Appears in</th>
+                <th>More info</th>
             </tr> 
         </thead>
         <tbody>
-            <tr *ngFor="let country of array;let i = index">
-                <td>{{ i + 1 }}</td>
+            <tr *ngFor="let country of array | slice: (page-1) * pageSize : page * pageSize" class="table-light">
+                <td>{{ country.id }}</td>
                 <td>{{ country.name }}</td>
                 <td>
                     <img [src]="country.images[0]" [alt]="country.name">
                 </td>
-                <td>{{ country.personal.sex}}</td>
-              <!---  <td>{{ country.capital }}</td>
-                <td>{{ country.population | number }}</td>-->
+                <td>{{ country.personal.sex || "No info"}}</td>
+                <td>{{ country.debut?.appearsIn || "No info"}}</td>
                 <td>
-                    <a [routerLink]="[ '/character', country.id]">Info</a>
+                    <a [routerLink]="[ '/character', country.id]">View more..</a>
                 </td>
             </tr>
         </tbody>
     </table>
 </ng-template>
+

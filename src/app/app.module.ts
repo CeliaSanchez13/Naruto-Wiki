@@ -15,6 +15,8 @@ import { TeamsComponent } from './pages/teams/teams.component';
 import { SharedModule } from './shared/shared.module';
 import { ByCharacterComponent } from './pages/characters/by-character/by-character.component';
 import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { RouterModule } from '@angular/router';
     HttpClientModule,
     AppRoutingModule,
 
-    SharedModule
+    SharedModule,
+     BrowserAnimationsModule,
+     NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

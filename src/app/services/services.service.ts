@@ -21,30 +21,12 @@ export class ServicesService {
               catchError( () => of([]) )
             );
   }
-/*
-  allCharactersList(){
-    this.http.get(`${this.apiUrl}/character`).pipe(
-      map( this.arrayCharacters)
-    )
-  }
 
-  private arrayCharacters(charactersObj:any){
-    //Obtener la lista de personajes y rellenarlo en el array
-    const charactersList: Characters[] = [];
 
-    Object.keys(charactersObj).forEach( key => {
-      const character: Characters = charactersObj[key];
-
-      charactersList.push(character)
-    });
-
-    return charactersList;
-  }*/
-
-  allCharactersList(){
+  allCharactersList(pagi:number){
     //return this.http.get(`${this.apiUrl}/character`);
     //Es un total de 72 paginas, capturar el valor del total de personajes y dividirlo de forma dinamica en los botones de la paginacion
-    return this.http.get<Characters[]>(`${this.apiUrl}/character?page=71&limit=20`);
+    return this.http.get<Characters[]>(`${this.apiUrl}/character?page=${pagi}&limit=20`);
 
   }
 

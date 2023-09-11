@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SearchBoxComponent } from './search-box/search-box.component';
 import { TableListComponent } from './table-list/table-list.component';
 import { RouterModule } from '@angular/router';
+import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap'; //Para poder usar la paginacion
 
 
 
@@ -13,7 +14,8 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    NgbPaginationModule 
   ],
   exports:[
     SearchBoxComponent,
