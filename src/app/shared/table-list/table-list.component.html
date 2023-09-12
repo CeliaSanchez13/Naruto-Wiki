@@ -29,13 +29,16 @@
                 <tr *ngFor="let country of array | slice: (page-1) * pageSize : page * pageSize" class="table-light">
                     <td>{{ country.id }}</td>
                     <td>{{ country.name }}</td>
-                    <td>
+                    <td *ngIf="country.images[0];else notAvailable">
                         <img [src]="country.images[0]" [alt]="country.name">
                     </td>
+                    <ng-template #notAvailable>
+                        <td><i>Not available</i></td>
+                    </ng-template>
                     <td>{{ country.personal.sex || "No info"}}</td>
                     <td>{{ country.debut?.appearsIn || "No info"}}</td>
                     <td>
-                        <a [routerLink]="[ '/character', country.id]">View more..</a>
+                        <button [routerLink]="[ '/character', country.id]" type="button" class="btn">View more</button>
                     </td>
                 </tr>
             </ng-container>
@@ -49,7 +52,7 @@
                     <td>{{ country.personal.sex || "No info"}}</td>
                     <td>{{ country.debut?.appearsIn || "No info"}}</td>
                     <td>
-                        <a [routerLink]="[ '/character', country.id]">View more..</a>
+                        <button [routerLink]="[ '/character', country.id]" type="button" class="btn">View more</button>
                     </td>
                 </tr>
             </ng-container>

@@ -71,6 +71,7 @@ export class TableListComponent implements OnInit{
     for ( let i = 0 ;i <= this.array.length;i++ ){
       if ( this.array[i].name.toLowerCase().includes(value.toLocaleLowerCase()) ) this.arrayTemp.push(this.array[i]);
     }
+    
   }
 
 }
