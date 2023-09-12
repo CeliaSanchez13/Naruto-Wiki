@@ -15,6 +15,7 @@ export class ServicesService {
   constructor( private http: HttpClient) { }
 
 
+  //CHARACTERS
   private getCharactersRequest(url:string): Observable<Characters[]>{
     return this.http.get<Characters[]>(url)
             .pipe(
@@ -22,17 +23,16 @@ export class ServicesService {
             );
   }
 
-
   allCharactersList(pagi:number){
     //return this.http.get(`${this.apiUrl}/character`);
     //Es un total de 72 paginas, capturar el valor del total de personajes y dividirlo de forma dinamica en los botones de la paginacion
     return this.http.get<Characters[]>(`${this.apiUrl}/character?page=${pagi}&limit=20`);
-
   }
 
   searchByCharacter( term: string ): Observable<Characters[]>{
-    return this.getCharactersRequest(`${this.apiUrl}/character/${term}`)
+    return this.getCharactersRequest(`${this.apiUrl}/character/search?name=${term}`);
   }
+
 
 
 }

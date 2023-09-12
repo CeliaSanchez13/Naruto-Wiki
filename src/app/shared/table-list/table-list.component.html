@@ -1,17 +1,18 @@
+<input type="text"
+       value = "" 
+       placeholder="Search..." 
+       class="form-control"
+       (keyup.enter)="onKeyPress(txtInput.value)"
+       #txtInput>
+
 <div *ngIf="array.length === 0; else table"
-      class="alert alert-warning text-center">
-    No hay paises que mostrar
+      class="alert alert-warning text-center mt-3">
+      <div class="spinner-border" role="status">
+      </div>
+      Loading....
 </div>
 
 <ng-template #table>
-    
-    <ngb-pagination class="d-flex justify-content-end" 
-                    [collectionSize]="array.length" 
-                    [pageSize]="pageSize"
-                    [(page)]="page" 
-                    [maxSize]="5"
-                    [rotate]="true"
-                    [boundaryLinks]="true"></ngb-pagination>
     <table class="table table-hover table-secondary mt-5">
         <thead>
             <tr>
@@ -24,19 +25,55 @@
             </tr> 
         </thead>
         <tbody>
-            <tr *ngFor="let country of array | slice: (page-1) * pageSize : page * pageSize" class="table-light">
-                <td>{{ country.id }}</td>
-                <td>{{ country.name }}</td>
-                <td>
-                    <img [src]="country.images[0]" [alt]="country.name">
-                </td>
-                <td>{{ country.personal.sex || "No info"}}</td>
-                <td>{{ country.debut?.appearsIn || "No info"}}</td>
-                <td>
-                    <a [routerLink]="[ '/character', country.id]">View more..</a>
-                </td>
-            </tr>
+            <ng-container *ngIf="arrayTemp.length === 0">
+                <tr *ngFor="let country of array | slice: (page-1) * pageSize : page * pageSize" class="table-light">
+                    <td>{{ country.id }}</td>
+                    <td>{{ country.name }}</td>
+                    <td>
+                        <img [src]="country.images[0]" [alt]="country.name">
+                    </td>
+                    <td>{{ country.personal.sex || "No info"}}</td>
+                    <td>{{ country.debut?.appearsIn || "No info"}}</td>
+                    <td>
+                        <a [routerLink]="[ '/character', country.id]">View more..</a>
+                    </td>
+                </tr>
+            </ng-container>
+            <ng-container *ngIf="arrayTemp.length > 0">
+                <tr *ngFor="let country of arrayTemp | slice: (page-1) * pageSize : page * pageSize" class="table-light">    
+                    <td>{{ country.id }}</td>
+                    <td>{{ country.name }}</td>
+                    <td>
+                        <img [src]="country.images[0]" [alt]="country.name">
+                    </td>
+                    <td>{{ country.personal.sex || "No info"}}</td>
+                    <td>{{ country.debut?.appearsIn || "No info"}}</td>
+                    <td>
+                        <a [routerLink]="[ '/character', country.id]">View more..</a>
+                    </td>
+                </tr>
+            </ng-container>
         </tbody>
     </table>
+    <ng-container *ngIf="arrayTemp.length > 20">
+        <ngb-pagination class="d-flex justify-content-end mt-5" 
+                        [collectionSize]="arrayTemp.length" 
+                        [pageSize]="pageSize"
+                        [(page)]="page" 
+                        [maxSize]="5"
+                        [rotate]="true"
+                        [boundaryLinks]="true">
+        </ngb-pagination>
+    </ng-container>
+    <ng-container *ngIf="arrayTemp.length === 0">
+        <ngb-pagination class="d-flex justify-content-end mt-5" 
+                        [collectionSize]="array.length" 
+                        [pageSize]="pageSize"
+                        [(page)]="page" 
+                        [maxSize]="5"
+                        [rotate]="true"
+                        [boundaryLinks]="true">
+        </ngb-pagination>
+    </ng-container>
 </ng-template>
 

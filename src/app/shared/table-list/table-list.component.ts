@@ -18,6 +18,7 @@ export class TableListComponent implements OnInit{
   totalCharacters:number = 0;
 
   array:Character[] = [];
+  arrayTemp:Character[] = [];
 
   constructor(private _serviceService: ServicesService){
 
@@ -65,6 +66,12 @@ export class TableListComponent implements OnInit{
   }//End getCharactersListForPagination()
 
 
+  onKeyPress(value:string){
+    this.arrayTemp = [];
+    for ( let i = 0 ;i <= this.array.length;i++ ){
+      if ( this.array[i].name.toLowerCase().includes(value.toLocaleLowerCase()) ) this.arrayTemp.push(this.array[i]);
+    }
+  }
 
 }
 
