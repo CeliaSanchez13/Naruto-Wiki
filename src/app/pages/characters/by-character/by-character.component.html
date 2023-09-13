@@ -9,17 +9,22 @@
             <div class="col-12 text-center mb-3">
                 <h3>Information</h3>
             </div>
-            <div class="col-3 text-center mx-3">
+            <div class="col-3 text-center mx-3" *ngIf="img">
                 <img [src]="img" [alt]="character?.name" class="img-thumbnail">
+                <img *ngIf="img1 ! ''" [src]="img1" [alt]="character?.name" class="img-thumbnail mt-2">
             </div>
-            <div class="col-4">
-                
+            <div class="col-4 mx-3">
                 <ul class="list-group">
                     <li class="list-group-item">
                         <strong>Appears in:</strong> {{ character?.debut?.appearsIn || 'Not available' }}
                     </li>
                     <li class="list-group-item">
                         <strong>Sex:</strong> {{ character?.personal?.sex || 'Not available'}}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Heigth Part I:</strong> {{ character?.personal?.height?.['Part I'] || 'Not available'}}<br>
+                        <strong>Heigth Part II:</strong> {{ character?.personal?.height?.['Part II'] || 'Not available'}}
+                       
                     </li>
                     <li class="list-group-item">
                         <strong>Birth date:</strong> {{ character?.personal?.birthdate || 'Not available'}}
@@ -40,15 +45,41 @@
                     <li class="list-group-item">
                         <strong>Voice actors (Japanese):</strong> {{ character?.voiceActors?.japanese || 'Not available'}} 
                     </li>
+                    <li class="list-group-item" *ngIf="character?.voiceActors?.english">
+                        <strong>Voice actors (english):</strong> {{ character?.voiceActors?.english || 'Not available'}} 
+                    </li>
                     
                 </ul>   
             </div>
     </div>
+    <br>
+    <hr>
     <div class="row mt-5">
-        <div class="col-12 mx-5" *ngIf="character?.jutsu?.length">
+        <div class="col-6 mx-5" *ngIf="character?.jutsu?.length">
             <strong>Jutsu/Jutsus: </strong>
             <ul *ngFor="let j of character?.jutsu; let i = index" class="mt-3">
                 <li> {{ j || 'Not available'}} </li>
+            </ul>
+        </div>
+        <div class="col-3 mx-5" *ngIf="character?.family">
+            <strong>Family: </strong>
+            <ul class="mt-3">
+                <li *ngIf="character?.family?.father"> <strong>Father: </strong>{{ character?.family?.father}} </li>
+                <li *ngIf="character?.family?.mother"> <strong>Mother: </strong>{{ character?.family?.mother}} </li>
+                <li *ngIf="character?.family?.grandmother"> <strong>Grandmother: </strong>{{ character?.family?.grandmother}} </li>
+                <li *ngIf="character?.family?.grandfather"> <strong>Grandfather: </strong>{{ character?.family?.grandfather}} </li>
+                <li *ngIf="character?.family?.granduncle"> <strong>Granduncle: </strong>{{ character?.family?.granduncle}} </li>
+                <li *ngIf="character?.family?.brother"> <strong>Brother: </strong>{{ character?.family?.brother}} </li>
+                <li *ngIf="character?.family?.godfather"> <strong>Godfather: </strong>{{ character?.family?.godfather}} </li>
+                <li *ngIf="character?.family?.['uncle ']"> <strong>Uncle: </strong>{{ character?.family?.['uncle ']}} </li>
+                <li *ngIf="character?.family?.['adoptive brother']"> <strong>Adoptive brother: </strong>{{ character?.family?.['adoptive brother']}} </li>
+                <li *ngIf="character?.family?.['adoptive father']"> <strong>Adoptive father: </strong>{{ character?.family?.['adoptive father']}} </li>
+                <li *ngIf="character?.family?.['adoptive son']"> <strong>Adoptive son: </strong>{{ character?.family?.['adoptive son']}} </li>
+                <li *ngIf="character?.family?.wife"> <strong>Wife: </strong>{{ character?.family?.wife}} </li> 
+                <li *ngIf="character?.family?.husband"> <strong>Husband: </strong>{{ character?.family?.husband}} </li> 
+                <li *ngIf="character?.family?.son"> <strong>Son: </strong>{{ character?.family?.son}} </li>
+                <li *ngIf="character?.family?.daughter"> <strong>Daughter: </strong>{{ character?.family?.daughter}} </li>
+                
             </ul>
         </div>
     </div>

@@ -42,7 +42,6 @@
             </ng-container>
             <ng-container *ngIf="arrayTemp.length > 0">
                 <tr *ngFor="let country of arrayTemp | slice: (page-1) * pageSize : page * pageSize" class="table-light">    
-                    <td>{{ country.id }}</td>
                     <td>{{ country.name }}</td>
                     <td>
                         <img [src]="country.images[0]" [alt]="country.name">

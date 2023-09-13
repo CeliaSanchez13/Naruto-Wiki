@@ -13,6 +13,7 @@ export class ByCharacterComponent implements OnInit{
   index:number=0;
   character?:Character;
   img:string = '';
+  img1:string = '';
 
   constructor( private _servicioService:ServicesService,
                private route: ActivatedRoute){}
@@ -29,6 +30,7 @@ export class ByCharacterComponent implements OnInit{
       (resp:any) => {
         this.character = resp;
         this.img = resp.images[0]
+        this.img1 = resp.images[1]
         console.log(this.character)
       }
     )
