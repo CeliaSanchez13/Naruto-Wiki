@@ -10,7 +10,7 @@
                 <h3>Information</h3>
             </div>
             <div class="col-3 text-center mx-3">
-                <img [src]="character?.images" [alt]="character?.name" class="img-thumbnail">
+                <img [src]="img" [alt]="character?.name" class="img-thumbnail">
             </div>
             <div class="col-4">
                 
@@ -45,7 +45,7 @@
             </div>
     </div>
     <div class="row mt-5">
-        <div class="col-12 mx-5">
+        <div class="col-12 mx-5" *ngIf="character?.jutsu?.length">
             <strong>Jutsu/Jutsus: </strong>
             <ul *ngFor="let j of character?.jutsu; let i = index" class="mt-3">
                 <li> {{ j || 'Not available'}} </li>
