@@ -3,6 +3,7 @@ img{
     max-width: 100%;
 }
 
-.btn{
-    background-color: orange;
+td, th {
+    padding-left:40px;
+    padding-right: 30px;     
 }

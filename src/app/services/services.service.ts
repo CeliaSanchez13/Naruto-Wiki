@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Characters} from '../interfaces/characters.interface';
+import { Character, Characters} from '../interfaces/characters.interface';
 import { Observable, catchError, map, of } from 'rxjs';
 
 @Injectable({
@@ -16,12 +16,13 @@ export class ServicesService {
 
 
   //CHARACTERS
+  /*
   private getCharactersRequest(url:string): Observable<Characters[]>{
     return this.http.get<Characters[]>(url)
             .pipe(
               catchError( () => of([]) )
             );
-  }
+  }*/
 
   allCharactersList(pagi:number){
     //return this.http.get(`${this.apiUrl}/character`);
@@ -29,8 +30,8 @@ export class ServicesService {
     return this.http.get<Characters[]>(`${this.apiUrl}/character?page=${pagi}&limit=20`);
   }
 
-  searchByCharacter( term: string ): Observable<Characters[]>{
-    return this.getCharactersRequest(`${this.apiUrl}/character/search?name=${term}`);
+  searchByCharacter( id: number ){
+    return this.http.get<Character[]>(`${this.apiUrl}/character/${id}`);
   }
 
 

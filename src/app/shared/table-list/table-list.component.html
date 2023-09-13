@@ -16,7 +16,6 @@
     <table class="table table-hover table-secondary mt-5">
         <thead>
             <tr>
-                <th>#</th>
                 <th>Name</th>
                 <th>Image</th>
                 <th>Sex</th>
@@ -27,7 +26,6 @@
         <tbody>
             <ng-container *ngIf="arrayTemp.length === 0">
                 <tr *ngFor="let country of array | slice: (page-1) * pageSize : page * pageSize" class="table-light">
-                    <td>{{ country.id }}</td>
                     <td>{{ country.name }}</td>
                     <td *ngIf="country.images[0];else notAvailable">
                         <img [src]="country.images[0]" [alt]="country.name">
