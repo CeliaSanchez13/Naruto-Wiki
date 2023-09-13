@@ -69,14 +69,20 @@
                 <li *ngIf="character?.family?.grandmother"> <strong>Grandmother: </strong>{{ character?.family?.grandmother}} </li>
                 <li *ngIf="character?.family?.grandfather"> <strong>Grandfather: </strong>{{ character?.family?.grandfather}} </li>
                 <li *ngIf="character?.family?.granduncle"> <strong>Granduncle: </strong>{{ character?.family?.granduncle}} </li>
+                <li *ngIf="character?.family?.['great-grandfather']"> <strong>Great-grandfather: </strong>{{ character?.family?.['great-grandfather']}} </li>
                 <li *ngIf="character?.family?.brother"> <strong>Brother: </strong>{{ character?.family?.brother}} </li>
+                <li *ngIf="character?.family?.sister"> <strong>Sister: </strong>{{ character?.family?.sister}} </li>
+                <li *ngIf="character?.family?.nephew"> <strong>Nephew: </strong>{{ character?.family?.nephew}} </li>
                 <li *ngIf="character?.family?.godfather"> <strong>Godfather: </strong>{{ character?.family?.godfather}} </li>
                 <li *ngIf="character?.family?.['uncle ']"> <strong>Uncle: </strong>{{ character?.family?.['uncle ']}} </li>
+                <li *ngIf="character?.family?.uncle"> <strong>Uncle: </strong>{{ character?.family?.uncle}} </li>
                 <li *ngIf="character?.family?.['adoptive brother']"> <strong>Adoptive brother: </strong>{{ character?.family?.['adoptive brother']}} </li>
                 <li *ngIf="character?.family?.['adoptive father']"> <strong>Adoptive father: </strong>{{ character?.family?.['adoptive father']}} </li>
                 <li *ngIf="character?.family?.['adoptive son']"> <strong>Adoptive son: </strong>{{ character?.family?.['adoptive son']}} </li>
+                <li *ngIf="character?.family?.['adoptive nephew']"> <strong>Adoptive nephew: </strong>{{ character?.family?.['adoptive nephew']}} </li>
                 <li *ngIf="character?.family?.wife"> <strong>Wife: </strong>{{ character?.family?.wife}} </li> 
                 <li *ngIf="character?.family?.husband"> <strong>Husband: </strong>{{ character?.family?.husband}} </li> 
+                <li *ngIf="character?.family?.lover"> <strong>Lover: </strong>{{ character?.family?.lover}} </li> 
                 <li *ngIf="character?.family?.son"> <strong>Son: </strong>{{ character?.family?.son}} </li>
                 <li *ngIf="character?.family?.daughter"> <strong>Daughter: </strong>{{ character?.family?.daughter}} </li>
                 
