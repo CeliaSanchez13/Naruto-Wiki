@@ -4,4 +4,6 @@
 .nav-link, .navbar-brand{
     color: white;
 }
-
+.navbar{
+    background-color: #F7902F;
+}

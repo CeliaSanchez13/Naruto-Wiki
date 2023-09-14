@@ -1,4 +1,4 @@
-<div style="height: 100%; background-color: white;">
+<div class="contenido">
     <div class="row">
             <div class="col-12 mt-5 mb-3 mx-5">
                 <h2>Name: <strong> {{ character?.name || 'Not available'}} </strong></h2>
@@ -64,6 +64,8 @@
         <div class="col-3 mx-5" *ngIf="character?.family">
             <strong>Family: </strong>
             <ul class="mt-3">
+                <li *ngIf="character?.family?.['depowered form']"> <strong>Depowered form: </strong>{{ character?.family?.['depowered form']}} </li>
+                <li *ngIf="character?.family?.['incarnation with the god tree']"> <strong>Incarnation with the god tree: </strong>{{ character?.family?.['incarnation with the god tree']}} </li>
                 <li *ngIf="character?.family?.father"> <strong>Father: </strong>{{ character?.family?.father}} </li>
                 <li *ngIf="character?.family?.mother"> <strong>Mother: </strong>{{ character?.family?.mother}} </li>
                 <li *ngIf="character?.family?.grandmother"> <strong>Grandmother: </strong>{{ character?.family?.grandmother}} </li>
@@ -76,6 +78,7 @@
                 <li *ngIf="character?.family?.godfather"> <strong>Godfather: </strong>{{ character?.family?.godfather}} </li>
                 <li *ngIf="character?.family?.['uncle ']"> <strong>Uncle: </strong>{{ character?.family?.['uncle ']}} </li>
                 <li *ngIf="character?.family?.uncle"> <strong>Uncle: </strong>{{ character?.family?.uncle}} </li>
+                <li *ngIf="character?.family?.cousin"> <strong>Cousin: </strong>{{ character?.family?.cousin}} </li>
                 <li *ngIf="character?.family?.['adoptive brother']"> <strong>Adoptive brother: </strong>{{ character?.family?.['adoptive brother']}} </li>
                 <li *ngIf="character?.family?.['adoptive father']"> <strong>Adoptive father: </strong>{{ character?.family?.['adoptive father']}} </li>
                 <li *ngIf="character?.family?.['adoptive son']"> <strong>Adoptive son: </strong>{{ character?.family?.['adoptive son']}} </li>
