@@ -18,6 +18,8 @@ import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { ClanComponent } from './pages/clans/clan/clan.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AkatsukiComponent,
     TailedBComponent,
     TeamsComponent,
-    ByCharacterComponent
+    ByCharacterComponent,
+    ClanComponent
   ],
   imports: [
     BrowserModule,

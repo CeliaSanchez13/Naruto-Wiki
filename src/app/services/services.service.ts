@@ -41,6 +41,11 @@ export class ServicesService {
     return this.http.get(`${this.firebaseUrl}/clans.json`);
   }
 
+  getClan( id: number ){
+    return this.http.get<Clans[]>(`${this.firebaseUrl}/clans/${id}.json`);
+  }
+
+  /*
   newClan(clan:Clans){
     return this.http.post(`${ this.firebaseUrl}/clans.json`, clan).pipe(
       map( (resp:any) => {
@@ -48,7 +53,7 @@ export class ServicesService {
         return clan;
       })
     );
-  }
+  }*/
 
 
 }
