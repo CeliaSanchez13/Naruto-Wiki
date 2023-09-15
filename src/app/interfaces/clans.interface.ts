@@ -3,4 +3,5 @@ export interface Clans {
     name:            string;
     img:             string;
     short:           string;
+    desc:            string;
 }
