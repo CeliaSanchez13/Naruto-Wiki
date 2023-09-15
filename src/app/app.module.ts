@@ -19,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { ClanComponent } from './pages/clans/clan/clan.component';
+import { ByTailedBComponent } from './pages/tailed-b/by-tailed-b/by-tailed-b.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ClanComponent } from './pages/clans/clan/clan.component';
     TailedBComponent,
     TeamsComponent,
     ByCharacterComponent,
-    ClanComponent
+    ClanComponent,
+    ByTailedBComponent
   ],
   imports: [
     BrowserModule,

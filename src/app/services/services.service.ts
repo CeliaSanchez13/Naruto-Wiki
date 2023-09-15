@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Character, Characters} from '../interfaces/characters.interface';
 import { Observable, catchError, map, of } from 'rxjs';
 import { Clans } from '../interfaces/clans.interface';
+import { TailedB, TailedBeast } from '../interfaces/tailedB.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -45,6 +46,14 @@ export class ServicesService {
     return this.http.get<Clans[]>(`${this.firebaseUrl}/clans/${id}.json`);
   }
 
+  //TAILED BEASTS
+  allTailedBList(){
+    return this.http.get<TailedB[]>(`${this.apiUrl}/tailed-beast`);
+  }
+
+  getTailedB( id: number ){
+    return this.http.get<TailedBeast[]>(`${this.apiUrl}/tailed-beast/${id}`);
+  }
   /*
   newClan(clan:Clans){
     return this.http.post(`${ this.firebaseUrl}/clans.json`, clan).pipe(
