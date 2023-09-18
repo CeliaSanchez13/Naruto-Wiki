@@ -8,10 +8,8 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CharactersComponent } from './pages/characters/characters.component';
 import { ClansComponent } from './pages/clans/clans.component';
-import { VillagesComponent } from './pages/villages/villages.component';
 import { AkatsukiComponent } from './pages/akatsuki/akatsuki.component';
 import { TailedBComponent } from './pages/tailed-b/tailed-b.component';
-import { TeamsComponent } from './pages/teams/teams.component';
 import { SharedModule } from './shared/shared.module';
 import { ByCharacterComponent } from './pages/characters/by-character/by-character.component';
 import { RouterModule } from '@angular/router';
@@ -29,10 +27,8 @@ import { ByAkatsukiComponent } from './pages/akatsuki/by-akatsuki/by-akatsuki.co
     HomeComponent,
     CharactersComponent,
     ClansComponent,
-    VillagesComponent,
     AkatsukiComponent,
     TailedBComponent,
-    TeamsComponent,
     ByCharacterComponent,
     ClanComponent,
     ByTailedBComponent,
