@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { Akatsuki, AkatsukiElement } from 'src/app/interfaces/akatsuki.interface';
 import { ServicesService } from 'src/app/services/services.service';
 
 @Component({
   selector: 'app-akatsuki',
-  templateUrl: './akatsuki.component.html',
-  styleUrls: ['./akatsuki.component.css']
+  templateUrl: './akatsuki.component.html'
 })
 export class AkatsukiComponent implements OnInit{
 
@@ -18,7 +18,8 @@ export class AkatsukiComponent implements OnInit{
   totalCharacters:number = 0;
 
 
-  constructor( private _serviceServices: ServicesService ){}
+  constructor( private _serviceServices: ServicesService,
+               private router:Router){}
 
   ngOnInit(): void {
     this.getCharactersListForPagination();
@@ -62,5 +63,12 @@ export class AkatsukiComponent implements OnInit{
       }
     }//EndIF
     
+  }//End get
+
+  viewDataMember( idMember: any ){
+    console.log("Este es el id " + idMember);
+    let ruta = '/character/'+idMember;
+    this.router.navigate['/character/199'];
+
   }
 }
