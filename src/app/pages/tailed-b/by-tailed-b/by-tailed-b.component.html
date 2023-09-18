@@ -1,1 +1,67 @@
-<p>by-tailed-b works!</p>
+
+<div class="contenido">
+    <div class="row">
+            <div class="col-12 mt-5 mb-3 mx-5">
+                <h2>Name: <strong> {{ beasts?.name || 'Not available'}} </strong></h2>
+            </div>
+    </div>
+    <hr>
+    <div class="row">
+            <div class="col-12 text-center mb-3">
+                <h3>Information</h3>
+            </div>
+            <div class="col-3 text-center mx-4" *ngIf="beasts?.images">
+                <img *ngIf="beasts?.name === 'Kurama';else beas" src="assets/img/kurama1.jpg" class="img-thumbnail" [alt]="beasts?.name">
+                <ng-template #beas>
+                    <img [src]="beasts?.images" class="img-thumbnail" [alt]="beasts?.name">
+                </ng-template>
+            </div>
+            <div class="col-4 mx-3">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <strong>Manga:</strong> {{ beasts?.debut?.manga || 'Not available'}}<br>
+                        <strong>Anime:</strong> {{ beasts?.debut?.anime || 'Not available'}}<br>
+                        <strong>Novel:</strong> {{ beasts?.debut?.novel || 'Not available'}}<br>
+                        <strong>Movie:</strong> {{ beasts?.debut?.movie || 'Not available'}}<br>
+                        <strong>Ova:</strong> {{ beasts?.debut?.ova || 'Not available'}}
+                    </li>
+                </ul>   
+            </div>
+            <div class="col-4">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <strong>Voice actors (Japanese):</strong> {{ beasts?.voiceActors?.japanese || 'Not available'}} 
+                    </li>
+                    <li class="list-group-item" *ngIf="beasts?.voiceActors?.english">
+                        <strong>Voice actors (English):</strong> {{ beasts?.voiceActors?.english || 'Not available'}} 
+                    </li>
+                    
+                </ul>   
+            </div>
+    </div>
+    <br>
+    <hr>
+
+    <div class="row mt-5">
+        <div class="col-6 mx-5" *ngIf="beasts?.personal?.titles?.length">
+            <strong>Titles: </strong>
+            <ul *ngFor="let j of beasts?.personal?.titles; else noInfo" class="mt-3">
+                <li> {{ j || 'Not available'}} </li>
+            </ul>
+        </div>
+        <div class="col-4 mx-5" *ngIf="beasts?.natureType?.length">
+            <strong>Nature type: </strong>
+            <ul *ngFor="let j of beasts?.natureType" class="mt-3">  
+                <li> {{ j || 'Not available'}} </li>
+            </ul>
+        </div>
+        <div class="col-6 mx-5" *ngIf="!beasts?.natureType?.length || !beasts?.personal?.titles?.length">
+            Not available
+        </div>
+    </div> 
+
+    <div class="row">
+         <div class="col-4 mx-5 mt-5">
+            <button style="margin-bottom: 50px;" class="btn" [routerLink]="['/tailedB']"><i class="fa-solid fa-arrow-left-long"></i> Back</button>
+         </div>
+    </div> 

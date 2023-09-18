@@ -5,8 +5,13 @@
 
 <div class="contenido my-5 p-5">
 <div class="row">
-    <div class="card mx-2 my-3" style="width: 18rem; cursor: pointer;" *ngFor="let beast of tailedB">
-        <img [src]="beast.images" class="card-img-top p-2 mt-2" [alt]="beast.name">
+    <div class="card mx-2 my-3" style="width: 18rem; cursor: pointer;" 
+         *ngFor="let beast of tailedB" 
+         [routerLink]="['/tailedB', beast.id ]">
+        <img *ngIf="beast.name === 'Kurama';else beas" src="assets/img/kurama1.jpg" class="card-img-top p-2 mt-2" [alt]="beast.name">
+        <ng-template #beas>
+            <img [src]="beast.images" class="card-img-top p-2 mt-2" [alt]="beast.name">
+        </ng-template>
         <div class="card-body">
             <h5 class="card-title"> {{ beast.name }}</h5>
             <p class="card-text"> <strong>Appears in:</strong> {{ beast?.debut?.appearsIn }}</p>
