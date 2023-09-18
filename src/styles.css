@@ -12,6 +12,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
     background-color: white;
 }
 
+.cabeceraAka{
+    border-radius: 25px;
+    border: 6px solid #8E0A0A; 
+    background-color: black; 
+    color: white;
+}
+
 .contenido{
     height: 100%; background-color: white;
 }

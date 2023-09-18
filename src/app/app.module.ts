@@ -20,6 +20,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { ClanComponent } from './pages/clans/clan/clan.component';
 import { ByTailedBComponent } from './pages/tailed-b/by-tailed-b/by-tailed-b.component';
+import { ByAkatsukiComponent } from './pages/akatsuki/by-akatsuki/by-akatsuki.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ByTailedBComponent } from './pages/tailed-b/by-tailed-b/by-tailed-b.com
     TeamsComponent,
     ByCharacterComponent,
     ClanComponent,
-    ByTailedBComponent
+    ByTailedBComponent,
+    ByAkatsukiComponent
   ],
   imports: [
     BrowserModule,

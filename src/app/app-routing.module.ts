@@ -10,6 +10,7 @@ import { TeamsComponent } from './pages/teams/teams.component';
 import { ByCharacterComponent } from './pages/characters/by-character/by-character.component';
 import { ClanComponent } from './pages/clans/clan/clan.component';
 import { ByTailedBComponent } from './pages/tailed-b/by-tailed-b/by-tailed-b.component';
+import { ByAkatsukiComponent } from './pages/akatsuki/by-akatsuki/by-akatsuki.component';
 
 const routes: Routes = [
   { path:'', component:HomeComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path:'clans/:id', component:ClanComponent},
   { path:'villages', component:VillagesComponent},
   { path:'akatsuki', component:AkatsukiComponent},
+  { path:'akatsuki/:id', component:ByAkatsukiComponent},
   { path:'tailedB', component:TailedBComponent},
   { path:'tailedB/:id', component:ByTailedBComponent},
   { path:'teams', component:TeamsComponent},

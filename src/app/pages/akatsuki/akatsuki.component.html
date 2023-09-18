@@ -1,1 +1,39 @@
-<p>akatsuki works!</p>
+<div class="cabeceraAka mt-5 pt-5 pb-5 text-center">
+    <h1>Akatsuki team</h1>
+</div>
+
+<div *ngIf="akatsuki.length === 0; else contenidoAka"
+      class="alert alert-warning text-center mt-3">
+      <div class="spinner-border" role="status">
+      </div>
+      Loading....
+</div>
+
+<ng-template #contenidoAka>
+    <div class="contenido my-5 p-5" style="background-image: url('assets/img/akatsuki.jpg');">
+        <div class="row">
+            <div class="card mx-2 my-3" style="width: 18rem; cursor: pointer;" 
+                *ngFor="let aka of akatsuki | slice: (page-1) * pageSize : page * pageSize" 
+                [routerLink]="['/akatsuki', aka.id ]">
+                <img *ngIf="aka.name === 'Mecha-Naruto' && aka.images.length === 0" src="assets/img/n-mecha.jpg" class="card-img-top p-2 mt-2" [alt]="aka.name">
+                <img *ngIf="aka.name === 'Renge Momoashi' || aka.name === 'Tsuyu' || aka.name === 'Naruto Musasabi' && aka.images.length === 0" src="assets/img/images.png" class="card-img-top p-2 mt-2" [alt]="aka.name">
+                <!--Imagenes normales-->
+                <img *ngIf="aka.images.length > 0" [src]="aka.images[0]" class="card-img-top p-2 mt-2" [alt]="aka.name">
+                
+                <div class="card-body">
+                    <h5 class="card-title"> {{ aka.name }}</h5>
+                    <p class="card-text"> <strong>Appears in:</strong> {{ aka?.debut?.appearsIn }}</p>
+                </div>
+            </div>
+        </div>
+        <ngb-pagination class="d-flex justify-content-end mt-5" 
+                        [collectionSize]="akatsuki.length" 
+                        [pageSize]="pageSize"
+                        [(page)]="page" 
+                        [maxSize]="5"
+                        [rotate]="true"
+                        [boundaryLinks]="true">
+        </ngb-pagination>
+    </div>
+</ng-template>
+
