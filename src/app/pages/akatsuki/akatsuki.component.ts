@@ -49,8 +49,6 @@ export class AkatsukiComponent implements OnInit{
 
     if ( this.carga ){
       for ( let i = 2 ; i <= this.paginasTotales;i++ ){
-        console.log(this.paginasTotales);
-        console.log(this.page);
         for( let j = 0; j < this.pageSize; j++){
           this._serviceServices.allAkatsuki(i).subscribe(
             (resp:any) => {
@@ -65,10 +63,8 @@ export class AkatsukiComponent implements OnInit{
     
   }//End get
 
-  viewDataMember( idMember: any ){
-    console.log("Este es el id " + idMember);
-    let ruta = '/character/'+idMember;
-    this.router.navigate['/character/199'];
-
+  viewDataMember( idMember: number ){
+    this.router.navigate(['/character', idMember]);
+    this._serviceServices.okButton=true; //Ponemos a true para que podamos volver a la pagina de akatsuki desde la de character
   }
 }

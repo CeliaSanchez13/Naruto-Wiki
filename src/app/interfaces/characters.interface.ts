@@ -55,6 +55,7 @@ export interface Family {
     uncle?:                           string;
     lover?:                           string;
     "great-grandfather"?:             string;
+    creator?:                         string;
 }
 
 export interface Personal {

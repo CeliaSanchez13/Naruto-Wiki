@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Character } from 'src/app/interfaces/characters.interface';
 import { ServicesService } from 'src/app/services/services.service';
@@ -8,12 +8,13 @@ import { ServicesService } from 'src/app/services/services.service';
   templateUrl: './by-character.component.html',
   styleUrls: ['./by-character.component.css']
 })
-export class ByCharacterComponent implements OnInit{
+export class ByCharacterComponent implements OnInit,OnDestroy{
 
   index:number=0;
   character?:Character;
   img:string = '';
   img1:string = '';
+  buttonAkaChar?:boolean;
 
   constructor( private _servicioService:ServicesService,
                private route: ActivatedRoute){}
@@ -22,6 +23,13 @@ export class ByCharacterComponent implements OnInit{
   ngOnInit(): void {
     this.index = this.route.snapshot.params['id'];
     this.recuperarCharacter();
+
+    this.buttonAkaChar = this._servicioService.okButton;
+   
+  }
+
+  ngOnDestroy(): void {
+    this._servicioService.okButton=false;
   }
 
   //Metodos
@@ -35,4 +43,5 @@ export class ByCharacterComponent implements OnInit{
       }
     )
   }
+
 }

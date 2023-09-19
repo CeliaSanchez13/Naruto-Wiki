@@ -15,6 +15,8 @@ export class ServicesService {
   private apiUrl:string =  'https://www.narutodb.xyz/api';
   private firebaseUrl:string =  'https://naruto-wiki-82280-default-rtdb.firebaseio.com';
 
+  okButton = false;
+
 
   constructor( private http: HttpClient) { }
 
@@ -61,9 +63,16 @@ export class ServicesService {
     return this.http.get<Akatsuki[]>(`${this.apiUrl}/akatsuki?page=${pagi}&limit=20`);
   }
 
-  getAkatsuki( id: number ){
-    return this.http.get<AkatsukiElement[]>(`${this.apiUrl}/akatsuki/${id}`);
+  setTrueButtonAkaChar(){
+    this.okButton = true
+    console.log(this.okButton)
+    return this.okButton;
   }
+
+  setFalseButtonAkaChar(){
+    return this.okButton = false;
+  }
+
 
   /*
   newClan(clan:Clans){
