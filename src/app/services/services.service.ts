@@ -15,6 +15,11 @@ export class ServicesService {
   private apiUrl:string =  'https://www.narutodb.xyz/api';
   private firebaseUrl:string =  'https://naruto-wiki-82280-default-rtdb.firebaseio.com';
 
+  //Parte GIFS
+  private apiKey:       string = '0MwpZhCay87P3AETHZhFWMCLPH5OzpJy';
+  private serviceUrl:   string = 'https://api.giphy.com/v1/gifs';
+  // -----------------
+
   okButton = false;
 
 
@@ -22,45 +27,58 @@ export class ServicesService {
 
 
   //CHARACTERS
-  /*
-  private getCharactersRequest(url:string): Observable<Characters[]>{
-    return this.http.get<Characters[]>(url)
-            .pipe(
-              catchError( () => of([]) )
-            );
-  }*/
-
   allCharactersList(pagi:number){
     //return this.http.get(`${this.apiUrl}/character`);
     //Es un total de 72 paginas, capturar el valor del total de personajes y dividirlo de forma dinamica en los botones de la paginacion
-    return this.http.get<Characters[]>(`${this.apiUrl}/character?page=${pagi}&limit=20`);
+    return this.http.get<Characters[]>(`${this.apiUrl}/character?page=${pagi}&limit=20`)
+              .pipe(
+                catchError( () => of([]) )
+              );
   }
 
   searchByCharacter( id: number ){
-    return this.http.get<Character[]>(`${this.apiUrl}/character/${id}`);
+    return this.http.get<Character[]>(`${this.apiUrl}/character/${id}`)
+              .pipe(
+                catchError( () => of([]) )
+              );
   }
 
   //CLANS
   allClansList(){
-    return this.http.get(`${this.firebaseUrl}/clans.json`);
+    return this.http.get(`${this.firebaseUrl}/clans.json`)
+              .pipe(
+                catchError( () => of([]) )
+              );
   }
 
   getClan( id: number ){
-    return this.http.get<Clans[]>(`${this.firebaseUrl}/clans/${id}.json`);
+    return this.http.get<Clans[]>(`${this.firebaseUrl}/clans/${id}.json`)
+              .pipe(
+                catchError( () => of([]) )
+              );
   }
 
   //TAILED BEASTS
   allTailedBList(){
-    return this.http.get<TailedB[]>(`${this.apiUrl}/tailed-beast`);
+    return this.http.get<TailedB[]>(`${this.apiUrl}/tailed-beast`)
+              .pipe(
+                catchError( () => of([]) )
+              );
   }
 
   getTailedB( id: number ){
-    return this.http.get<TailedBeast[]>(`${this.apiUrl}/tailed-beast/${id}`);
+    return this.http.get<TailedBeast[]>(`${this.apiUrl}/tailed-beast/${id}`)
+                .pipe(
+                  catchError( () => of([]) )
+                );
   }
 
   //AKATSUKI
   allAkatsuki( pagi:number){
-    return this.http.get<Akatsuki[]>(`${this.apiUrl}/akatsuki?page=${pagi}&limit=20`);
+    return this.http.get<Akatsuki[]>(`${this.apiUrl}/akatsuki?page=${pagi}&limit=20`)
+              .pipe(
+                catchError( () => of([]) )
+              );
   }
   
 
