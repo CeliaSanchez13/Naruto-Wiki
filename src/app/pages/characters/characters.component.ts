@@ -13,8 +13,7 @@ export class CharactersComponent implements OnInit{
   constructor( private _serviceService:ServicesService){}
 
   ngOnInit(): void {
-    this._serviceService.setFalseButtonAkaChar();
-    console.log(this._serviceService.okButton+" inicializamos a false cuando abrimos el listado de los personajes");
+    this._serviceService.okButton=false;
   }
 
 }

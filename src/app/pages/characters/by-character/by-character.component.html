@@ -89,15 +89,14 @@
                 <li *ngIf="character?.family?.lover"> <strong>Lover: </strong>{{ character?.family?.lover}} </li> 
                 <li *ngIf="character?.family?.son"> <strong>Son: </strong>{{ character?.family?.son}} </li>
                 <li *ngIf="character?.family?.daughter"> <strong>Daughter: </strong>{{ character?.family?.daughter}} </li>
-                <li *ngIf="character?.family?.creator"> <strong>Creator: </strong>{{ character?.family?.creator}} </li>
-                
+                <li *ngIf="character?.family?.creator"> <strong>Creator: </strong>{{ character?.family?.creator}} </li>        
             </ul>
         </div>
     </div>
     <div class="row">
          <div class="col-4 mx-5 mt-5">
             <button *ngIf="buttonAkaChar" style="margin-bottom: 50px;" class="btn" [routerLink]="['/akatsuki']"><i class="fa-solid fa-arrow-left-long"></i> Back</button>
-            <button *ngIf="buttonAkaChar == false" style="margin-bottom: 50px;" class="btn btn-primary" [routerLink]="['/characters']"><i class="fa-solid fa-arrow-left-long"></i> Back</button>
+            <button *ngIf="buttonAkaChar == false" style="margin-bottom: 50px;" class="btn" [routerLink]="['/characters']"><i class="fa-solid fa-arrow-left-long"></i> Back</button>
          </div>
     </div>
 </div>

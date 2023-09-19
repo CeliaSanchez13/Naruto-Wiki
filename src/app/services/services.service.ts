@@ -62,17 +62,7 @@ export class ServicesService {
   allAkatsuki( pagi:number){
     return this.http.get<Akatsuki[]>(`${this.apiUrl}/akatsuki?page=${pagi}&limit=20`);
   }
-
-  setTrueButtonAkaChar(){
-    this.okButton = true
-    console.log(this.okButton)
-    return this.okButton;
-  }
-
-  setFalseButtonAkaChar(){
-    return this.okButton = false;
-  }
-
+  
 
   /*
   newClan(clan:Clans){
