@@ -15,11 +15,6 @@ export class ServicesService {
   private apiUrl:string =  'https://www.narutodb.xyz/api';
   private firebaseUrl:string =  'https://naruto-wiki-82280-default-rtdb.firebaseio.com';
 
-  //Parte GIFS
-  private apiKey:       string = '0MwpZhCay87P3AETHZhFWMCLPH5OzpJy';
-  private serviceUrl:   string = 'https://api.giphy.com/v1/gifs';
-  // -----------------
-
   okButton = false;
 
 

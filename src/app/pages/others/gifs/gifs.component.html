@@ -1,1 +1,31 @@
-<p>gifs works!</p>
+<div class="contenido">
+    <div class="row">
+        <div class="col m-5">
+            <h5>Search:</h5>
+                <input type="text"
+                class="form-control"
+                placeholder="Search gifs..."
+                (keyup.enter)="searchTag(txtTagInput.value)"
+                #txtTagInput>
+        </div>
+        <!--
+        <div class="col-12">
+            <div *ngFor="let nombre of tags">
+                {{ nombre }}
+            </div>
+        </div>-->
+    </div>
+</div>
+<div class="row m-5">
+    <div *ngFor="let gif of gifs"  class="col-md-3 col-sm-6">
+        <div class="card mb-2 text-center bg-dark">
+            <img [src]="gif.images.downsized_medium.url"
+                 [alt]="gif.title"
+                 class="card-img-top">
+        
+            <div class="card-body text-white">
+                <p class="card-text">{{ gif.title }} </p>
+            </div>
+        </div>
+    </div>
+</div>
