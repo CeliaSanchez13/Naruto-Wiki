@@ -40,12 +40,14 @@ export interface Family {
     "adoptive brother"?:              string;
     cousin?:                          string;
     "adoptive father"?:               string;
+    "older brother"?:               string;
     "adoptive nephew"?:               string;
     "uncle "?:                        string;
     brother?:                         string;
     sister?:                          string;
     husband?:                         string;
     mother?:                          string;
+    "mother "?:                       string;
     wife?:                            string;
     godfather?:                       string;
     daughter?:                        string;

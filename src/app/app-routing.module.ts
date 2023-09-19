@@ -9,6 +9,9 @@ import { TailedBComponent } from './pages/tailed-b/tailed-b.component';
 import { ByCharacterComponent } from './pages/characters/by-character/by-character.component';
 import { ClanComponent } from './pages/clans/clan/clan.component';
 import { ByTailedBComponent } from './pages/tailed-b/by-tailed-b/by-tailed-b.component';
+import { AuthorComponent } from './pages/others/author/author.component';
+import { ComentsComponent } from './pages/others/coments/coments.component';
+import { GifsComponent } from './pages/others/gifs/gifs.component';
 
 const routes: Routes = [
   { path:'', component:HomeComponent},
@@ -20,6 +23,9 @@ const routes: Routes = [
   { path:'akatsuki', component:AkatsukiComponent},
   { path:'tailedB', component:TailedBComponent},
   { path:'tailedB/:id', component:ByTailedBComponent},
+  { path:'gifs', component:GifsComponent},
+  { path:'comments', component:ComentsComponent},
+  { path:'author', component:AuthorComponent},
   { path:'**', pathMatch:'full', redirectTo:'home'},
 ];
 

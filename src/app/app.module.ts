@@ -18,6 +18,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { ClanComponent } from './pages/clans/clan/clan.component';
 import { ByTailedBComponent } from './pages/tailed-b/by-tailed-b/by-tailed-b.component';
+import { GifsComponent } from './pages/others/gifs/gifs.component';
+import { ComentsComponent } from './pages/others/coments/coments.component';
+import { AuthorComponent } from './pages/others/author/author.component';
 
 
 @NgModule({
@@ -31,7 +34,10 @@ import { ByTailedBComponent } from './pages/tailed-b/by-tailed-b/by-tailed-b.com
     TailedBComponent,
     ByCharacterComponent,
     ClanComponent,
-    ByTailedBComponent
+    ByTailedBComponent,
+    GifsComponent,
+    ComentsComponent,
+    AuthorComponent
   ],
   imports: [
     BrowserModule,
