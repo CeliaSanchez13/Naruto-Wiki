@@ -10,9 +10,11 @@ import { GifsService } from 'src/app/services/gifs.service';
 export class GifsComponent {
 
   gifs: Gif[] = [];
-  tags= ['Naruto','Hinata','Sasuke','Kyubi','Sakura','Kakashi'];
+  tags= ['Naruto','Hinata','Sasuke','Kurama','Gaara','Sakura','Kakashi'];
 
   constructor( private _gifsService:GifsService){
+
+    this.searchTag('Naruto');
 
   }
   

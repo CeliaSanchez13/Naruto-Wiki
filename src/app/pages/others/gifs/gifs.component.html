@@ -1,4 +1,9 @@
-<div class="contenido">
+<div class="contenido pb-2">
+    <div class="row pt-5">
+        <div class="col text-center">
+            <h1>Gallery</h1>
+        </div>
+    </div>
     <div class="row">
         <div class="col m-5">
             <h5>Search:</h5>
@@ -8,24 +13,27 @@
                 (keyup.enter)="searchTag(txtTagInput.value)"
                 #txtTagInput>
         </div>
-        <!--
-        <div class="col-12">
-            <div *ngFor="let nombre of tags">
+        
+        <div class="row justify-content-center">
+            <div class="listado col-1 mx-3 text-center" 
+                 *ngFor="let nombre of tags"
+                 (click)="searchTag(nombre)">
                 {{ nombre }}
             </div>
-        </div>-->
+        </div>
     </div>
-</div>
-<div class="row m-5">
-    <div *ngFor="let gif of gifs"  class="col-md-3 col-sm-6">
-        <div class="card mb-2 text-center bg-dark">
-            <img [src]="gif.images.downsized_medium.url"
-                 [alt]="gif.title"
-                 class="card-img-top">
-        
-            <div class="card-body text-white">
-                <p class="card-text">{{ gif.title }} </p>
+    <div class="row m-5">
+        <div *ngFor="let gif of gifs"  class="col-md-3 col-sm-6">
+            <div class="card mb-2 text-center bg-dark">
+                <img [src]="gif.images.downsized_medium.url"
+                     [alt]="gif.title"
+                     class="card-img-top">
+            
+                <div class="card-body text-white">
+                    <p class="card-text">{{ gif.title }} </p>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
