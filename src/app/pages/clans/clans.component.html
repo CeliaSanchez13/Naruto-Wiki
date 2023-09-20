@@ -10,7 +10,7 @@
              *ngFor="let clan of clans; let i = index"
              [routerLink]="['/clans', i ]">
             <div class="card-body">
-                <h4 class="card-text"> {{ clan.name }}</h4>
+                <h5 class="card-text"> {{ clan.name }}</h5>
             </div>
             <img [src]="clan.img" class="card-img-top" style="width: 45%;" [alt]="clan.name">
           </div>
