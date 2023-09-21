@@ -12,6 +12,8 @@ import { ByTailedBComponent } from './pages/tailed-b/by-tailed-b/by-tailed-b.com
 import { AuthorComponent } from './pages/others/author/author.component';
 import { ComentsComponent } from './pages/others/coments/coments.component';
 import { GifsComponent } from './pages/others/gifs/gifs.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/login/register/register.component';
 
 const routes: Routes = [
   { path:'', component:HomeComponent},
@@ -26,6 +28,8 @@ const routes: Routes = [
   { path:'gifs', component:GifsComponent},
   { path:'comments', component:ComentsComponent},
   { path:'author', component:AuthorComponent},
+  { path:'login', component:LoginComponent},
+  { path:'register', component:RegisterComponent},
   { path:'**', pathMatch:'full', redirectTo:'home'},
 ];
 

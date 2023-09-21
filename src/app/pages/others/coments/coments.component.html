@@ -10,12 +10,40 @@
             <p>Enjoy!</p>
         </div>
      </div>
-     <div style="background-image: url(assets/img/n-blog.jpeg);">
+     <div style="background-image: url(assets/img/n-blog.jpeg); height: 100vh;">
         <div class="row">
-           <div class="col-12">
-            <h1>Blog </h1>
+           <div class="col d-flex justify-content-center mt-5 p-3">
+            <div class="alert alert-warning text-center mt-5 p-5" role="alert">
+                For this functionality it is necessary to have a user created.
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <button type="button" class="btn btn-outline-dark m-3" [routerLink]="['/login']">Sing in</button>
+                    </div>
+                    <div class="col mt-3">
+                        <p>Don't have a user? <a [routerLink]="['/register']">Register</a></p>
+                    </div>
+                </div>
+              </div>
            </div>
         </div>
     </div>
+    <!--
+     <div style="background-image: url(assets/img/n-blog.jpeg); height: 100vh;">
+        <div class="row">
+           <div class="col d-flex justify-content-center mt-5 p-3">
+            <div class="alert alert-warning text-center mt-5 p-5" role="alert">
+                For this functionality it is necessary to have a user created.
+                <div class="row">
+                    <div class="col">
+                        <button type="button" class="btn btn-outline-dark">Sing up</button>
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn btn-outline-dark">Register</button>
+                    </div>
+                </div>
+              </div>
+           </div>
+        </div>
+    </div> -->
 </div>
 

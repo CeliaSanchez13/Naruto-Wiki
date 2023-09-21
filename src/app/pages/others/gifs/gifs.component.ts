@@ -10,7 +10,7 @@ import { GifsService } from 'src/app/services/gifs.service';
 export class GifsComponent {
 
   gifs: Gif[] = [];
-  tags= ['Naruto','Hinata','Sasuke','Kurama','Gaara','Sakura','Kakashi'];
+  tags= ['Naruto','Hinata','Sasuke','Kurama','Gaara','Jiraiya','Kakashi'];
 
   constructor( private _gifsService:GifsService){
 
@@ -20,15 +20,13 @@ export class GifsComponent {
   
  
 
-  searchTag( tag:string) {
+  searchTag( tag:string ) {
 
     this._gifsService.searchTag(tag)?.subscribe(
       resp => {
         this.gifs = resp.data;
       }
     )
-
-    //this.tagInput.nativeElement.value = '';
 
   }
   
