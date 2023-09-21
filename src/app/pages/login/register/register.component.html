@@ -17,14 +17,14 @@
                     <!-- Primer row-->
                     <div class="row form-group">
                         <div class="col-auto">
-                            <label for="inputPassword6" class="col-form-label">Name user :</label>
+                            <label for="inputPassword6" class="col-form-label">Name user</label>
                         </div>
                         <div class="col-4">
                             <input type="text" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
                             <span class="form-text">Must be 8-20 characters long.</span>
                         </div>
                         <div class="col-auto">
-                            <label for="inputPassword6" class="col-form-label">Email :</label>
+                            <label for="inputPassword6" class="col-form-label">Email</label>
                         </div>
                         <div class="col-5">
                             <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
@@ -32,9 +32,9 @@
                         </div>
                     </div>
                     <!-- Segundo row-->
-                    <div class="row form-group row-cols-sm-auto mt-3">
+                    <div class="row form-group row-cols-sm-auto mt-5">
                         <div class="col-auto">
-                            <label for="inputPassword6" class="col-form-label">Date of birth :</label>
+                            <label for="inputPassword6" class="col-form-label">Date of birth</label>
                         </div>
                         <div class="col-12">
                             <div class="input-group">
@@ -44,38 +44,47 @@
                                        [(ngModel)]="model"
                                        ngbDatepicker
                                        #d="ngbDatepicker"/>
-                                <button class="btn btn-outline-secondary " (click)="d.toggle()" type="button"><i class="fa-solid fa-calendar"></i></button>
+                                <button class="btn btn-outline-secondary " style="background-color: transparent;" 
+                                        (click)="d.toggle()" type="button"><i class="fa-solid fa-calendar"></i></button>
                             </div>
                         </div>
                             <span class="form-text">Must be 8-20 characters long.</span>
                         
                     </div>
                     <!-- Tercer row-->
-                    <div class="row form-group mt-3">
+                    <div class="row form-group mt-5">
                         <div class="col-auto">
-                            <label for="inputPassword6" class="col-form-label">Password :</label>
+                            <label for="inputPassword6" class="col-form-label">Password</label>
                         </div>
                         <div class="col-4">
                             <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
                             <span class="form-text"> Must be 8-20 characters long.</span>
                         </div>
                         <div class="col-auto">
-                            <label for="inputPassword6" class="col-form-label">Repeat password :</label>
+                            <label for="inputPassword6" class="col-form-label">Repeat password</label>
                         </div>
                         <div class="col-4">
                             <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
                             <span class="form-text">Must be 8-20 characters long.</span>
                         </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-2 col-form-label">&nbsp;</label>
-                    <div class="input-group col">
-                      <button type="submit" class="btn btn-outline-primary btn-block" style="background-color: transparent;">
-                        Guardar
-                      </button>
+                    <div class="row form-group mt-5">
+                        <div class="col-auto">
+                            <label for="formFile" class="form-label">Avatar</label>
+                        </div>
+                        <div class="col-6">
+                            <input class="form-control" type="file" id="formFile">
+                            <span class="form-text">Mensaje que saldrá si no hay foto subida.</span>
+                        </div>
                     </div>
-                  </div>
+                </div>
+                <div class="form-group row mt-5">
+                    <div class="btn-group" role="group" aria-label="Default button group">
+                        <button type="button" class="btn btn-outline-warning" style="background-color: transparent;" [routerLink]="['/comments']"> <i class="fa-solid fa-arrow-left"></i> Back</button>
+                        <button type="button" class="btn btn-outline-success" style="background-color: transparent;"> <i class="fa-regular fa-paper-plane"></i>Send</button>
+                        <button type="button" class="btn btn-outline-danger" style="background-color: transparent;"> <i class="fa-regular fa-trash-can"></i> Clear</button>
+                      </div>
+                </div>
             </form>
         </div>
     </div>

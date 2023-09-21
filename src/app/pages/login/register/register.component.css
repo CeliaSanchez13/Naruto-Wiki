@@ -1,0 +1,9 @@
+label {
+    display: block;
+    float: left;
+
+    height: 24px;
+    margin: 0 10px 0 0;
+    padding: 3px 7px;
+    width: 100px;
+}
