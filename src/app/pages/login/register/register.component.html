@@ -1,1 +1,82 @@
-<p>register works!</p>
+<div class="contenido"> 
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="assets/img/academia.jpg" class="d-block w-100" alt="New user">
+            <div class="carousel-caption d-none d-md-block pb-1">
+              <h1 class="titulo">Create new user</h1>
+              <div class="alert alert-warning" role="alert">
+                Create a new user to enjoy our BLOG and the new features implemented in the future.
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="p-5">
+        <div class="row g-3 align-items-center">
+            <form autocomplete="off" [formGroup]="formu" (ngSubmit)="save()">
+                <div class="col">
+                    <!-- Primer row-->
+                    <div class="row form-group">
+                        <div class="col-auto">
+                            <label for="inputPassword6" class="col-form-label">Name user :</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="text" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                            <span class="form-text">Must be 8-20 characters long.</span>
+                        </div>
+                        <div class="col-auto">
+                            <label for="inputPassword6" class="col-form-label">Email :</label>
+                        </div>
+                        <div class="col-5">
+                            <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                            <span class="form-text">Must be 8-20 characters long.</span>
+                        </div>
+                    </div>
+                    <!-- Segundo row-->
+                    <div class="row form-group row-cols-sm-auto mt-3">
+                        <div class="col-auto">
+                            <label for="inputPassword6" class="col-form-label">Date of birth :</label>
+                        </div>
+                        <div class="col-12">
+                            <div class="input-group">
+                                <input class="form-control"
+                                       placeholder="yyyy-mm-dd"
+                                       name="dp"
+                                       [(ngModel)]="model"
+                                       ngbDatepicker
+                                       #d="ngbDatepicker"/>
+                                <button class="btn btn-outline-secondary " (click)="d.toggle()" type="button"><i class="fa-solid fa-calendar"></i></button>
+                            </div>
+                        </div>
+                            <span class="form-text">Must be 8-20 characters long.</span>
+                        
+                    </div>
+                    <!-- Tercer row-->
+                    <div class="row form-group mt-3">
+                        <div class="col-auto">
+                            <label for="inputPassword6" class="col-form-label">Password :</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                            <span class="form-text"> Must be 8-20 characters long.</span>
+                        </div>
+                        <div class="col-auto">
+                            <label for="inputPassword6" class="col-form-label">Repeat password :</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                            <span class="form-text">Must be 8-20 characters long.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-2 col-form-label">&nbsp;</label>
+                    <div class="input-group col">
+                      <button type="submit" class="btn btn-outline-primary btn-block" style="background-color: transparent;">
+                        Guardar
+                      </button>
+                    </div>
+                  </div>
+            </form>
+        </div>
+    </div>
+</div>

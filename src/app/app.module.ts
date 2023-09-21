@@ -21,7 +21,7 @@ import { ByTailedBComponent } from './pages/tailed-b/by-tailed-b/by-tailed-b.com
 import { GifsComponent } from './pages/others/gifs/gifs.component';
 import { ComentsComponent } from './pages/others/coments/coments.component';
 import { AuthorComponent } from './pages/others/author/author.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/login/register/register.component';
 
@@ -50,6 +50,7 @@ import { RegisterComponent } from './pages/login/register/register.component';
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
 
     SharedModule,
      BrowserAnimationsModule,
