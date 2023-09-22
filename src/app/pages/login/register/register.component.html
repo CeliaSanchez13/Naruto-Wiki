@@ -19,16 +19,26 @@
                         <div class="col-auto">
                             <label for="inputPassword6" class="col-form-label">Name user</label>
                         </div>
-                        <div class="col-4">
-                            <input type="text" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
-                            <span class="form-text">Must be 8-20 characters long.</span>
+                        <div class="col-3">
+                            <input type="text"
+                                   placeholder="User" 
+                                   id="inputUser" 
+                                   class="form-control" 
+                                   formControlName="user"
+                                   [class.is-invalid]="userNoValido">
+                            <span class="form-text" *ngIf="userNoValido">Must have a minimum of 5 characters.</span>
                         </div>
                         <div class="col-auto">
-                            <label for="inputPassword6" class="col-form-label">Email</label>
+                            <label for="inputEmail" class="col-form-label">Email</label>
                         </div>
                         <div class="col-5">
-                            <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
-                            <span class="form-text">Must be 8-20 characters long.</span>
+                            <input type="text" 
+                                   placeholder="User" 
+                                   id="inputEmail" 
+                                   class="form-control"
+                                   formControlName="email"
+                                   [class.is-invalid]="emailNoValido">
+                            <span class="form-text" *ngIf="emailNoValido">Not a correct email.</span>
                         </div>
                     </div>
                     <!-- Segundo row-->
@@ -43,6 +53,7 @@
                                        name="dp"
                                        [(ngModel)]="model"
                                        ngbDatepicker
+                                       formControlName="nombre"
                                        #d="ngbDatepicker"/>
                                 <button class="btn btn-outline-secondary " style="background-color: transparent;" 
                                         (click)="d.toggle()" type="button"><i class="fa-solid fa-calendar"></i></button>
@@ -57,15 +68,20 @@
                             <label for="inputPassword6" class="col-form-label">Password</label>
                         </div>
                         <div class="col-4">
-                            <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
-                            <span class="form-text"> Must be 8-20 characters long.</span>
+                            <input type="password" 
+                                   id="inputPassword6" 
+                                   class="form-control"
+                                   placeholder="Password"
+                                   formControlName="password"
+                                   [class.is-invalid]="passwordNoValido">
+                            <span class="form-text" *ngIf="passwordNoValido"> Must be between 8 and 16 characters, at least one digit, at least one lower case letter and at least one upper case letter.</span>
                         </div>
                         <div class="col-auto">
                             <label for="inputPassword6" class="col-form-label">Repeat password</label>
                         </div>
                         <div class="col-4">
                             <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
-                            <span class="form-text">Must be 8-20 characters long.</span>
+                            <span class="form-text">Must be the same as above password.</span>
                         </div>
                     </div>
                     <div class="row form-group mt-5">
@@ -73,15 +89,20 @@
                             <label for="formFile" class="form-label">Avatar</label>
                         </div>
                         <div class="col-6">
-                            <input class="form-control" type="file" id="formFile">
-                            <span class="form-text">Mensaje que saldrá si no hay foto subida.</span>
+                            <input class="form-control" 
+                                   type="file" 
+                                   id="formFile" 
+                                   placeholder="Avatar"
+                                   formControlName="image"
+                                   [class.is-invalid]="imageNoValido">
+                            <span class="form-text" *ngIf="imageNoValido">Mensaje que saldrá si no hay foto subida.</span>
                         </div>
                     </div>
                 </div>
                 <div class="form-group row mt-5">
                     <div class="btn-group" role="group" aria-label="Default button group">
                         <button type="button" class="btn btn-outline-warning" style="background-color: transparent;" [routerLink]="['/comments']"> <i class="fa-solid fa-arrow-left"></i> Back</button>
-                        <button type="button" class="btn btn-outline-success" style="background-color: transparent;"> <i class="fa-regular fa-paper-plane"></i>Send</button>
+                        <button type="submit" class="btn btn-outline-success" style="background-color: transparent;"> <i class="fa-regular fa-paper-plane"></i>Send</button>
                         <button type="button" class="btn btn-outline-danger" style="background-color: transparent;"> <i class="fa-regular fa-trash-can"></i> Clear</button>
                       </div>
                 </div>
