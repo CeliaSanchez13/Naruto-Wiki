@@ -22,23 +22,19 @@
                         <div class="col-3">
                             <input type="text"
                                    placeholder="User" 
-                                   id="inputUser" 
                                    class="form-control" 
-                                   formControlName="user"
-                                   [class.is-invalid]="userNoValido">
-                            <span class="form-text" *ngIf="userNoValido">Must have a minimum of 5 characters.</span>
+                                   formControlName="user">
+                            <span class="form-text" *ngIf="isValidField('user')">Must have a minimum of 5 characters.</span>
                         </div>
                         <div class="col-auto">
                             <label for="inputEmail" class="col-form-label">Email</label>
                         </div>
                         <div class="col-5">
                             <input type="text" 
-                                   placeholder="User" 
-                                   id="inputEmail" 
+                                   placeholder="Email" 
                                    class="form-control"
-                                   formControlName="email"
-                                   [class.is-invalid]="emailNoValido">
-                            <span class="form-text" *ngIf="emailNoValido">Not a correct email.</span>
+                                   formControlName="email">
+                            <span class="form-text" *ngIf="isValidField('email')">Not a correct email.</span>
                         </div>
                     </div>
                     <!-- Segundo row-->
@@ -48,62 +44,54 @@
                         </div>
                         <div class="col-12">
                             <div class="input-group">
-                                <input class="form-control"
-                                       placeholder="yyyy-mm-dd"
-                                       name="dp"
-                                       [(ngModel)]="model"
-                                       ngbDatepicker
-                                       formControlName="nombre"
-                                       #d="ngbDatepicker"/>
-                                <button class="btn btn-outline-secondary " style="background-color: transparent;" 
-                                        (click)="d.toggle()" type="button"><i class="fa-solid fa-calendar"></i></button>
+                                <mat-form-field>
+                                    <mat-label>Choose a date</mat-label>
+                                    <input matInput [matDatepicker]="picker" formControlName="date">
+                                    <mat-hint>MM/DD/YYYY</mat-hint>
+                                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field>
                             </div>
-                        </div>
-                            <span class="form-text">Must be 8-20 characters long.</span>
-                        
+                        </div>                     
                     </div>
                     <!-- Tercer row-->
                     <div class="row form-group mt-5">
                         <div class="col-auto">
-                            <label for="inputPassword6" class="col-form-label">Password</label>
+                            <label class="col-form-label">Password</label>
                         </div>
                         <div class="col-4">
                             <input type="password" 
-                                   id="inputPassword6" 
                                    class="form-control"
                                    placeholder="Password"
-                                   formControlName="password"
-                                   [class.is-invalid]="passwordNoValido">
-                            <span class="form-text" *ngIf="passwordNoValido"> Must be between 8 and 16 characters, at least one digit, at least one lower case letter and at least one upper case letter.</span>
+                                   formControlName="password">
+                            <span class="form-text" *ngIf="isValidField('password')"> Must be between 8 and 16 characters, at least one digit, at least one lower case letter and at least one upper case letter.</span>
                         </div>
                         <div class="col-auto">
-                            <label for="inputPassword6" class="col-form-label">Repeat password</label>
+                            <label class="col-form-label">Repeat password</label>
                         </div>
                         <div class="col-4">
-                            <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
-                            <span class="form-text">Must be the same as above password.</span>
+                            <input type="password" class="form-control" formControlName="password2">
+                            <span class="form-text" *ngIf="isValidField('password2') || isEqualPass(formu.controls['password'].value, formu.controls['password2'].value)">Must be the same as above password.</span>
                         </div>
                     </div>
                     <div class="row form-group mt-5">
                         <div class="col-auto">
-                            <label for="formFile" class="form-label">Avatar</label>
+                            <label class="form-label">Avatar</label>
                         </div>
                         <div class="col-6">
                             <input class="form-control" 
-                                   type="file" 
-                                   id="formFile" 
-                                   placeholder="Avatar"
-                                   formControlName="image"
-                                   [class.is-invalid]="imageNoValido">
-                            <span class="form-text" *ngIf="imageNoValido">Mensaje que saldrá si no hay foto subida.</span>
+                                   type="file"  
+                                   placeholder="Avatar">
+                                  <!-- formControlName="image"> -->
+                           <!-- <span class="form-text" *ngIf="isValidField('password2')">Mensaje que saldrá si no hay foto subida.</span>-->
                         </div>
                     </div>
                 </div>
                 <div class="form-group row mt-5">
                     <div class="btn-group" role="group" aria-label="Default button group">
                         <button type="button" class="btn btn-outline-warning" style="background-color: transparent;" [routerLink]="['/comments']"> <i class="fa-solid fa-arrow-left"></i> Back</button>
-                        <button type="submit" class="btn btn-outline-success" style="background-color: transparent;"> <i class="fa-regular fa-paper-plane"></i>Send</button>
-                        <button type="button" class="btn btn-outline-danger" style="background-color: transparent;"> <i class="fa-regular fa-trash-can"></i> Clear</button>
+                        <button type="submit" class="btn btn-outline-success" style="background-color: transparent;"> <i class="fa-regular fa-paper-plane"></i> Send</button>
+                        <button type="button" class="btn btn-outline-danger" style="background-color: transparent;" (click)="clear()"> <i class="fa-regular fa-trash-can"></i> Clear</button>
                       </div>
                 </div>
             </form>

@@ -1,58 +1,72 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
-import { NgbAlertModule, NgbDateStruct, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NgbDateStruct, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import { ValidatorService } from 'src/app/shared/service/validator.service';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatNativeDateModule} from '@angular/material/core';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
+
+  styleUrls: ['./register.component.css'],
   
-  styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
 
   formu!:FormGroup;
   model: NgbDateStruct;
 
-  constructor( private fb: FormBuilder ){
+  constructor( private fb: FormBuilder,
+               private _validatorService:ValidatorService ){
 
     this.formu = this.fb.group({
       user:['',[Validators.required,Validators.minLength(5)]],
-      email:['',[Validators.required,Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$")]],
-      password:['',[Validators.required,Validators.pattern("[A-Za-z0-9._%+-]{8,15}$")]],
-      image:['',[Validators.required]]
-      /*
-      apellido:['',Validators.required],
-      correo:['',[Validators.required,Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$")]],
-      direccion: this.fb.group({
-        distrito:['',Validators.required],
-        ciudad:['',Validators.required]
-      }),
-      pasatiempos:'hli',
-      pasatiempos: this.fb.array([
-        ['ss'],[],[],[]
-      ])*/
+      email:['',[Validators.required,Validators.pattern(this._validatorService.emailPattern)]],
+      date: [''],
+      password:['',[Validators.required,Validators.pattern(this._validatorService.passPattern)]],
+      password2:['',Validators.required],
+      //image:['',[Validators.required]]
     });
 
   }
 
   
 
-  get userNoValido(){
-    return this.formu.get('user')?.invalid && this.formu.get('user')?.touched;
+  isValidField ( field:string ){
+    return this._validatorService.isValidField(this.formu, field );
   }
-  get emailNoValido(){
-    return this.formu.get('email')?.invalid && this.formu.get('email')?.touched;
-  }
-  get passwordNoValido(){
-    return this.formu.get('password')?.invalid && this.formu.get('password')?.touched;
-  }
-  get imageNoValido(){
-    return this.formu.get('image')?.invalid && this.formu.get('image')?.touched;
+
+  isEqualPass(field1:string, field2:string){
+    return this._validatorService.isFieldOneEqualFieldTwo(field1,field2);
   }
 
 
   save(){
-     console.log(this.formu);
+    if ( this.formu.invalid ){
+      console.log("invalid");
+      console.log(this.formu.value);
+      this.formu.markAllAsTouched();
+      return ;
+    }
+
+    //Si hay fecha... transformamos el formato...
+    if ( this.formu.controls['date'].value !==''){
+      const DATE = new Date(this.formu.controls['date'].value);
+      let dated = DATE.toLocaleString().split(",",1);
+      this.formu.controls['date'].setValue(dated[0]);
+    }
+    
+    console.log(this.formu.value);
+    
+    this.formu.reset();
+  }
+
+
+  clear(){
+    this.formu.reset();
   }
 
 
