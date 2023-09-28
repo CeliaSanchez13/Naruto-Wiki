@@ -17,7 +17,7 @@
                     <!-- Primer row-->
                     <div class="row form-group">
                         <div class="col-auto">
-                            <label for="inputPassword6" class="col-form-label">Name user</label>
+                            <label for="inputPassword6" class="col-form-label">Username</label>
                         </div>
                         <div class="col-3">
                             <input type="text"
@@ -71,7 +71,7 @@
                         </div>
                         <div class="col-4">
                             <input type="password" class="form-control" formControlName="password2">
-                            <span class="form-text" *ngIf="isValidField('password2') || isEqualPass(formu.controls['password'].value, formu.controls['password2'].value)">Must be the same as above password.</span>
+                            <span class="form-text" *ngIf="isValidField('password2') || isEqualPass(formu.controls['password'].value, formu.controls['password2'].value)">Passwords don´t match.</span>
                         </div>
                     </div>
                     <div class="row form-group mt-5">
