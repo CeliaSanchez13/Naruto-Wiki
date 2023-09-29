@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit{
       //image:['',[Validators.required]]
     });
 
-    //Obtenemos los datos los datos
+    //Obtenemos los datos de los usuarios
     this._blogService.getUsers().subscribe(
       resp => {
         this.usuarios = resp;
