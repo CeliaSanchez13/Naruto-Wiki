@@ -109,11 +109,14 @@ export class RegisterComponent implements OnInit{
           this._blogService.newUser(this.formu.value);
           this.formu.reset();
 
-          Swal.fire(
-            'Thank you!',
-            'Your account has been created, you can now log in on our web.',
-            'success'
-          );
+          Swal.fire({
+            title:'Thank you!',
+            text:'Your account has been created, you can now log in on our web.',
+            icon: 'success',
+            showClass:{
+              popup: 'animate__animated animate__jackInTheBox'
+            }
+        });
         }
       })
     }
