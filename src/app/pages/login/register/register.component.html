@@ -3,7 +3,7 @@
         <div class="carousel-item active">
             <img src="assets/img/academia.jpg" class="d-block w-100" alt="New user">
             <div class="carousel-caption d-none d-md-block pb-1">
-              <h1 class="titulo">Create new user</h1>
+              <h1 class="titulo">Register</h1>
               <div class="alert alert-warning" role="alert">
                 Create a new user to enjoy our BLOG and the new features implemented in the future.
               </div>
@@ -70,8 +70,12 @@
                             <label class="col-form-label">Repeat password</label>
                         </div>
                         <div class="col-4">
-                            <input type="password" class="form-control" formControlName="password2">
-                            <span class="form-text" *ngIf="isValidField('password2') || isEqualPass(formu.controls['password'].value, formu.controls['password2'].value)">Passwords don´t match.</span>
+                            <input type="password" 
+                                   class="form-control" 
+                                   placeholder="Password"
+                                   formControlName="password2"
+                                   [class.is-invalid] = isEqualPass>
+                            <span class="form-text" *ngIf="isValidField('password2')">Passwords don´t match.</span>
                         </div>
                     </div>
                     <div class="row form-group mt-5">

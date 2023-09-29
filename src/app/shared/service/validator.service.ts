@@ -12,11 +12,15 @@ export class ValidatorService {
   constructor() { }
 
 
+  notAvailableEmail(){
+    
+  }
+
   isValidField( myForm:FormGroup, field:string ){ //Metodo para comprobar si tiene errores o no el campo que le pasemos
     return myForm.controls[field].errors && myForm.controls[field].touched;
   }
 
-  isFieldOneEqualFieldTwo( field1:string, field2:string ){
+  isFieldOneEqualFieldTwo(field1:any, field2:any ){
       if ( field1 === field2 ) {
         return false;
       }else{

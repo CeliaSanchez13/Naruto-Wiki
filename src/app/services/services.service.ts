@@ -13,7 +13,7 @@ export class ServicesService {
 
 
   private apiUrl:string =  'https://www.narutodb.xyz/api';
-  private firebaseUrl:string =  'https://naruto-wiki-82280-default-rtdb.firebaseio.com';
+  firebaseUrl:string =  'https://naruto-wiki-82280-default-rtdb.firebaseio.com';
 
   okButton = false;
 
@@ -76,16 +76,4 @@ export class ServicesService {
               );
   }
   
-
-  /*
-  newClan(clan:Clans){
-    return this.http.post(`${ this.firebaseUrl}/clans.json`, clan).pipe(
-      map( (resp:any) => {
-        clan.id = resp.name;
-        return clan;
-      })
-    );
-  }*/
-
-
 }
