@@ -46,14 +46,10 @@ export class RegisterComponent implements OnInit{
     return this._validatorService.isValidField(this.formu, field );
   }
 
-  get isEqualPass(){
-    return this._validatorService.isFieldOneEqualFieldTwo(this.formu.get('password'),this.formu.get('password2'));
-  }
-
-
+ 
 
   save(){
-    let userExist, emailExist = false
+    let userExist, emailExist,passNotMatch = false
     let htmlContent:string = '';
     //Recorremos los usuarios para comprobar que no existe ya ninguno
     for( let i=0 ; i <= this.usuarios.length ; i++){
@@ -66,8 +62,14 @@ export class RegisterComponent implements OnInit{
           htmlContent += "<p>The email account already exists.</p>"
         }
     };
+
+    //Comprobacion de las pass
+    if( this.formu.controls['password'].value !== this.formu.controls['password2'].value ){
+      passNotMatch = true;
+      htmlContent += "<p>Password don´t match.</p>"
+    }
     
-    if ( emailExist || userExist){
+    if ( emailExist || userExist || passNotMatch ){
       Swal.fire({
         icon: 'error',
         title: 'Oops...Invalid data',
@@ -80,7 +82,7 @@ export class RegisterComponent implements OnInit{
         }
       })
     }else{
-      
+
       if ( this.formu.invalid ){
         console.log(this.formu.value);
         this.formu.markAllAsTouched();
