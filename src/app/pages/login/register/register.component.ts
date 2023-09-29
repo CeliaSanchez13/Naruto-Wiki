@@ -71,7 +71,13 @@ export class RegisterComponent implements OnInit{
       Swal.fire({
         icon: 'error',
         title: 'Oops...Invalid data',
-        html: `${htmlContent}`
+        html: `${htmlContent}`,
+        showClass: {
+          popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+          popup: 'animate__animated animate__fadeOutUp'
+        }
       })
     }else{
       

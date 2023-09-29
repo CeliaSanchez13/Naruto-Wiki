@@ -13,8 +13,6 @@ export class ComentsComponent implements OnInit{
 
 
   ngOnInit(): void {
-    this._blogService.getUsers();
-    
   }
 
 }
