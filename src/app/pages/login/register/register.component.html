@@ -77,17 +77,17 @@
                             <span class="form-text" *ngIf="isValidField('password2')">Passwords is required.</span>
                         </div>
                     </div>
-                    <div class="row form-group mt-5">
-                        <div class="col-auto">
-                            <label class="form-label">Avatar</label>
+                    <div class="row form-group mt-5 mt-3">
+                        <div class="col-12 text-center mb-1" style="font-weight: bold;">
+                            <p>Choose your Avatar</p>
                         </div>
-                        <div class="col-6">
-                            <input class="form-control" 
-                                   type="file"  
-                                   placeholder="Avatar">
-                                  <!-- formControlName="image"> -->
-                           <!-- <span class="form-text" *ngIf="isValidField('password2')">Mensaje que saldrá si no hay foto subida.</span>-->
+                        <div class="col-12 text-center mb-4" id="imgChoose">
+                            <p style="color: red;"> Choose an avatar for your account  </p>
                         </div>
+                        <div class="col-3 px-5" *ngFor="let avatar of avatarList">
+                           <img [src]="avatar.img" style="height: 184px; cursor: pointer;" [alt]="avatar.name" id="imgAv" (click)="useImage('#imgChoose',avatar.img)">
+                        </div>
+                        
                     </div>
                 </div>
                 <div class="form-group row mt-5">

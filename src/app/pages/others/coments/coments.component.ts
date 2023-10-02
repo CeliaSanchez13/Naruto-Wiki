@@ -8,11 +8,13 @@ import { BlogService } from 'src/app/services/blog.service';
 })
 export class ComentsComponent implements OnInit{
 
+  userLog:string | null;
   
-  constructor( private _blogService:BlogService){}
+  constructor(){}
 
 
   ngOnInit(): void {
+    this.userLog = localStorage.getItem('user');
   }
 
 }

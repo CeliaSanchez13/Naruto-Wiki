@@ -7,3 +7,13 @@ label {
     padding: 3px 7px;
     width: 100px;
 }
+
+#imgAv:hover{
+    border: 2px solid black;
+    outline: none;
+}
+
+#imgChoose{
+    display: block;
+}
+

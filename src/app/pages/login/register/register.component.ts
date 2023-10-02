@@ -17,6 +17,8 @@ export class RegisterComponent implements OnInit{
   formu!:FormGroup;
   usuarios:User[] = [];
 
+  avatarList:any[] = [];
+
   constructor( private fb: FormBuilder,
                private _validatorService:ValidatorService,
                private _blogService:BlogService ){ }
@@ -28,19 +30,31 @@ export class RegisterComponent implements OnInit{
       date: [''],
       password:['',[Validators.required,Validators.pattern(this._validatorService.passPattern)]],
       password2:['',Validators.required],
-      //image:['',[Validators.required]]
+      image:['']
     });
 
     //Obtenemos los datos de los usuarios
     this._blogService.getUsers().subscribe(
-      resp => {
-        this.usuarios = resp;
+      resp => this.usuarios = resp
+    );
+
+    //Obtenemos las imagenes de los avatar
+    this._blogService.getAvatares().subscribe(
+      (resp:any) => {
+        this.avatarList = resp;
+        console.log(this.avatarList)
       }
-    )
+    );
     
 
   }//FIN_INIT
 
+  useImage( selector:string, img :string ){
+    let elemento = document.querySelector<HTMLElement>(selector);
+    if ( elemento !== null) elemento.style.visibility = 'hidden';
+
+    this.formu.controls['image'].setValue(img);
+  }
   
   isValidField ( field:string ){
     return this._validatorService.isValidField(this.formu, field );

@@ -46,6 +46,10 @@ export class BlogService {
     return  USERS;
   }
 
+  //Traer imagenes
+  getAvatares(){
+    return this.http.get(`${ this._servicesService.firebaseUrl}/avatar.json`);
+  }
 
   //Ver comentarios
 
