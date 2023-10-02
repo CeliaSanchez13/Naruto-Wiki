@@ -22,6 +22,10 @@ export class LoginComponent implements OnInit{
                private route:Router){}
 
   ngOnInit(): void {
+
+    if( localStorage.getItem('user') !== null){
+      this.route.navigate(['/home']); //Si ya nos hemos logueado... nos lleva a la pagina principal con el user en el menu ya cargado
+    }
     
     this.formu = this.fb.group({
       email:['',[Validators.required,Validators.pattern(this._validatorService.emailPattern)]],
@@ -51,19 +55,21 @@ export class LoginComponent implements OnInit{
             icon: 'success',
             title: `Welcome ${ this.usuarios[i]?.user }`,
             text: 'User found!',
-            showConfirmButton: true
-          }).then((result) => {
-            if (result.isConfirmed) {
-              //Insertamos los datos del usuario en el localStorage
-              localStorage.setItem('email', `${ this.usuarios[i]?.email }`);
-              localStorage.setItem('user', `${ this.usuarios[i]?.user }`);
-              localStorage.setItem('date', `${ this.usuarios[i]?.date }`);
-              // Este será la imagen localStorage.setItem('img', `${ this.usuarios[i]?.img }`);
-              this.route.navigate(['/home']);
-              //window.location.reload(); //Recargar la pagina entera para que podamos ver la actualización en el menú y ver el usuario nuevo.
+            showConfirmButton: false,
+            timer: 3000
+          });
+
+          localStorage.setItem('email', `${ this.usuarios[i]?.email }`);
+          localStorage.setItem('user', `${ this.usuarios[i]?.user }`);
+          localStorage.setItem('date', `${ this.usuarios[i]?.date }`);
+          // Este será la imagen localStorage.setItem('img', `${ this.usuarios[i]?.img }`);
+
+          setTimeout(function(){
+            if( localStorage.getItem('user') !== null){
+              window.location.reload();
             }
-          });//Fin_swal
-        }
+          }, 3000);
+        }//Fin_if
       }   
     };//Fin_for
   }//Fin_submit
