@@ -52,6 +52,8 @@ export class BlogService {
   }
 
   //Ver comentarios
-
+  getAllComments(){
+    return this.http.get(`${ this._servicesService.firebaseUrl}/mensajes.json`);
+  }
 
 }

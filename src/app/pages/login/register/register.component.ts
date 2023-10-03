@@ -4,6 +4,7 @@ import { ValidatorService } from 'src/app/shared/service/validator.service';
 import { BlogService } from 'src/app/services/blog.service';
 import Swal from 'sweetalert2';
 import { User } from 'src/app/interfaces/user.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -18,10 +19,12 @@ export class RegisterComponent implements OnInit{
   usuarios:User[] = [];
 
   avatarList:any[] = [];
+  imagenSeleccionada:any = null;
 
   constructor( private fb: FormBuilder,
                private _validatorService:ValidatorService,
-               private _blogService:BlogService ){ }
+               private _blogService:BlogService,
+               private route:Router ){ }
 
   ngOnInit(): void {
     this.formu = this.fb.group({
@@ -49,10 +52,13 @@ export class RegisterComponent implements OnInit{
 
   }//FIN_INIT
 
-  useImage( selector:string, img :string ){
+  useImage( selector:string, img :string , avatarSeleccionado: any ){
     let elemento = document.querySelector<HTMLElement>(selector);
     if ( elemento !== null) elemento.style.visibility = 'hidden';
 
+    this.imagenSeleccionada = avatarSeleccionado;
+
+    //Asignamos el valor a la imagen dentro del objeto
     this.formu.controls['image'].setValue(img);
   }
   
@@ -63,7 +69,7 @@ export class RegisterComponent implements OnInit{
  
 
   save(){
-    let userExist, emailExist,passNotMatch = false
+    let userExist, emailExist,passNotMatch, imgNoChoose = false
     let htmlContent:string = '';
     //Recorremos los usuarios para comprobar que no existe ya ninguno
     for( let i=0 ; i <= this.usuarios.length ; i++){
@@ -82,8 +88,13 @@ export class RegisterComponent implements OnInit{
       passNotMatch = true;
       htmlContent += "<p>Password don´t match.</p>"
     }
+    //Comprobación imagen seleccionada
+    if( this.formu.controls['image'].value === ''){
+      imgNoChoose = true;
+      htmlContent += "<p>No avatar selected.</p>"
+    }
     
-    if ( emailExist || userExist || passNotMatch ){
+    if ( emailExist || userExist || passNotMatch || imgNoChoose ){
       Swal.fire({
         icon: 'error',
         title: 'Oops...Invalid data',
@@ -131,8 +142,11 @@ export class RegisterComponent implements OnInit{
             icon: 'success',
             showClass:{
               popup: 'animate__animated animate__jackInTheBox'
-            }
+            },
+            showConfirmButton: false,
+            timer:3000
         });
+        this.route.navigate(['/login']);
         }
       })
     }

@@ -8,12 +8,19 @@ label {
     width: 100px;
 }
 
+/* Clase creada para que se quede el borde fijo al hacer click */
+.seleccionada{
+    border: 4px outset black;
+}
+/* Cuando pasamos por encima de la imagen */
 #imgAv:hover{
     border: 2px solid black;
     outline: none;
 }
-
+/*El div del texto de seleccionar una imagen */
 #imgChoose{
     display: block;
 }
+
+
 

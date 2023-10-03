@@ -85,7 +85,11 @@
                             <p style="color: red;"> Choose an avatar for your account  </p>
                         </div>
                         <div class="col-3 px-5" *ngFor="let avatar of avatarList">
-                           <img [src]="avatar.img" style="height: 184px; cursor: pointer;" [alt]="avatar.name" id="imgAv" (click)="useImage('#imgChoose',avatar.img)">
+                           <img [src]="avatar.img" 
+                                style="height: 184px; cursor: pointer;" 
+                                [alt]="avatar.name" id="imgAv" 
+                                [class.seleccionada]="avatar === imagenSeleccionada"
+                                (click)="useImage('#imgChoose',avatar.img, avatar)">
                         </div>
                         
                     </div>

@@ -9,12 +9,19 @@ import { BlogService } from 'src/app/services/blog.service';
 export class ComentsComponent implements OnInit{
 
   userLog:string | null;
+
+  commentsList:string[] = [];
   
-  constructor(){}
+  constructor( private _blogService:BlogService){}
 
 
   ngOnInit(): void {
     this.userLog = localStorage.getItem('user');
+
+    this._blogService.getAllComments().subscribe(
+      (resp:any) => this.commentsList = resp
+    );
+
   }
 
 }

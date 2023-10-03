@@ -27,23 +27,13 @@
            </div>
         </div>
     </div>
-    <!--
-     <div style="background-image: url(assets/img/n-blog.jpeg); height: 100vh;">
-        <div class="row">
-           <div class="col d-flex justify-content-center mt-5 p-3">
-            <div class="alert alert-warning text-center mt-5 p-5" role="alert">
-                For this functionality it is necessary to have a user created.
-                <div class="row">
-                    <div class="col">
-                        <button type="button" class="btn btn-outline-dark">Sing up</button>
-                    </div>
-                    <div class="col">
-                        <button type="button" class="btn btn-outline-dark">Register</button>
-                    </div>
-                </div>
-              </div>
+    <div *ngIf="userLog !== null" class ="contenido">
+        <hr>
+        <div class="row mx-5 my-5" style="background-color: green;">
+           <div class="col-12">
+            
            </div>
         </div>
-    </div> -->
+    </div> 
 </div>
 
