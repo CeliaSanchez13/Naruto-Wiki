@@ -29,10 +29,45 @@
     </div>
     <div *ngIf="userLog !== null" class ="contenido">
         <hr>
-        <div class="row mx-5 my-5" style="background-color: green;">
-           <div class="col-12">
-            
-           </div>
+        <div *ngFor="let comment of commentsList; let i = index" class="mx-5 my-5" >
+            <div class="row" id="boxComment">
+                <div class="col-2 py-4 pt-4 pb-3">
+                    <img [src] = comment.image style="height: 124.8px;" class="img-thumbnail">  
+                </div>
+                <div class="col-10">
+                    <div class="row mt-2">
+                        <div class="col justify-content-end d-flex">
+                            <button type="button" id="botonReg" class="btn btn-outline-danger" style="background-color: transparent;" (click)="deleteComment( comment.id, i )"> <i class="fa-regular fa-trash-can"></i></button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            {{ comment.user }}
+                        </div>
+                        <div class="col-12">
+                            {{ comment.text }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row px-5 pb-2">
+                    <div class="col justify-content-end d-flex mt-2" style="color: #ACA9A9;">
+                        {{comment.fecha}} 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mx-5 py-5">
+            <form autocomplete="off" [formGroup]="commentForm" (ngSubmit)="saveComment()">
+                <div class="mb-3">
+                    <label for="textarea1" class="form-label">Add your comment</label>
+                    <textarea class="form-control"
+                              id="textarea1" rows="3" 
+                              formControlName="comment"
+                              placeholder="Write your comment here..."></textarea>
+                    <span class="form-text" *ngIf="isValidField('comment')">Required field and minimum of 5 characters.</span>
+                </div>
+                <button type="submit" class="btn ">Send</button>
+            </form>
         </div>
     </div> 
 </div>

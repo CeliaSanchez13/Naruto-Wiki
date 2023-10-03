@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit{
           localStorage.setItem('email', `${ this.usuarios[i]?.email }`);
           localStorage.setItem('user', `${ this.usuarios[i]?.user }`);
           localStorage.setItem('date', `${ this.usuarios[i]?.date }`);
-          // Este será la imagen localStorage.setItem('img', `${ this.usuarios[i]?.img }`);
+          localStorage.setItem('image', `${ this.usuarios[i]?.image }`);
 
           setTimeout(function(){
             if( localStorage.getItem('user') !== null){

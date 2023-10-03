@@ -38,8 +38,11 @@ export class RegisterComponent implements OnInit{
 
     //Obtenemos los datos de los usuarios
     this._blogService.getUsers().subscribe(
-      resp => this.usuarios = resp
-    );
+      resp => {
+        console.log(resp);
+        this.usuarios = resp;
+
+      });
 
     //Obtenemos las imagenes de los avatar
     this._blogService.getAvatares().subscribe(

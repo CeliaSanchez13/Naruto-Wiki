@@ -5,5 +5,5 @@ export interface User {
     password:   string;
     password2:  string;
     user:       string;
-  
+    image:      string;
 }
