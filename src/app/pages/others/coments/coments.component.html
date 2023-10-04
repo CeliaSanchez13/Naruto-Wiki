@@ -27,6 +27,7 @@
            </div>
         </div>
     </div>
+    <!-- Contenido logueado -->
     <div *ngIf="userLog !== null" class ="contenido">
         <hr class="mb-5">
         <div *ngFor="let comment of commentsList| slice: (page-1) * pageSize : page * pageSize ; let i = index " class="mx-5 mb-2" >
@@ -49,7 +50,21 @@
                         </div>
                     </div>
                 </div>
-                <div class="row px-1 pb-2">
+                <div class="row px-1 pb-2 pb-3">
+                    <div class="col-6 justify-content-end d-flex" 
+                         [class.likeSelect]="comment === likeSeleccionada">
+                        <i class="fa-solid fa-thumbs-up px-2" 
+                           (click)="like(comment.id,comment)" 
+                           style="cursor: pointer;"></i> 
+                        <p *ngIf="comment.like > 0"> {{comment.like}} </p>
+                    </div>
+                    <div class="col justify-content-start d-flex" 
+                         [class.dislikeSelect]="comment === dislikeSeleccionada">
+                        <i class="fa-solid fa-thumbs-down px-2" 
+                           (click)="dislike(comment.id,comment)" 
+                           style="cursor: pointer;"></i> 
+                        <p *ngIf="comment.dislike > 0">{{comment.dislike}} </p>
+                    </div>
                     <div class="col justify-content-end d-flex mt-2" style="color: #ACA9A9;">
                         {{comment.fecha}} 
                     </div>

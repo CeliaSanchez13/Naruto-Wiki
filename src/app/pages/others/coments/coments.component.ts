@@ -12,20 +12,27 @@ import Swal from 'sweetalert2';
 })
 export class ComentsComponent implements OnInit{
 
+  //User e imagen usuario logeado
   userLog:string | null;
   imgLog:string | null;
 
+  //Lista comentario
   commentsList:any[] = [];
 
+  //Paginacion
   page:number = 1;
   pageSize:number = 10;
 
+  //Formulario
   commentForm: FormGroup;
+
+  //Like y dislike
+  likeSeleccionada:any = null;
+  dislikeSeleccionada:any = null;
   
   constructor( private _blogService:BlogService,
                private fb: FormBuilder,
-               private _validatorService:ValidatorService,
-               private router:Router){}
+               private _validatorService:ValidatorService){}
 
 
   ngOnInit(): void {
@@ -94,7 +101,11 @@ export class ComentsComponent implements OnInit{
       fecha:'',
       image: this.imgLog,
       text: this.commentForm.controls['comment'].value,
-      user: this.userLog
+      user: this.userLog,
+      like:0,
+      dislike:0,
+      listLike: [''],
+      listDislike: ['']
     };
 
     Swal.fire({
@@ -127,5 +138,20 @@ export class ComentsComponent implements OnInit{
     })
 
   }//Fin_save
+
+  like(id:string, likeSeleccionado: any){
+    //Ponemos el color
+    this.likeSeleccionada = likeSeleccionado;
+
+    //Añadimos los valores a los objetos
+
+  }
+
+  dislike(id:string,dislikeSeleccionado: any){
+    //Ponemos el color
+    this.dislikeSeleccionada = dislikeSeleccionado;
+
+    //Añadimos los valores a los objetos
+  }
 
 }
