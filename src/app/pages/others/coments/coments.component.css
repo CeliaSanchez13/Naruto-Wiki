@@ -5,3 +5,11 @@
     -webkit-border-radius: 7px 5px 5px 5px;
     -moz-border-radius: 7px 5px 5px 5px;
 }
+
+#boxText{
+    background-color: #C8C8C8;
+    border: 1px solid #7B7B7B;
+    border-radius: 6px 6px 6px 6px;
+    -webkit-border-radius: 6px 6px 6px 6px;
+    -moz-border-radius: 6px 6px 6px 6px;
+}

@@ -17,6 +17,9 @@ export class ComentsComponent implements OnInit{
 
   commentsList:any[] = [];
 
+  page:number = 1;
+  pageSize:number = 10;
+
   commentForm: FormGroup;
   
   constructor( private _blogService:BlogService,
@@ -37,11 +40,11 @@ export class ComentsComponent implements OnInit{
 
     //Traemos los comentarios
     this._blogService.getAllComments().subscribe(
-      (resp:any) => this.commentsList = resp
-    );
-
-    //Ponemos el array al reves para poder asi hacer la paginación en condiciones, mostrará el ultimo comentario el primero
-    this.commentsList.reverse();
+      (resp:any) => {
+        this.commentsList = resp;
+        //Ponemos el array al reves para poder asi hacer la paginación en condiciones, mostrará el ultimo comentario el primero
+        this.commentsList.reverse();
+    });
 
   }
 
@@ -63,8 +66,20 @@ export class ComentsComponent implements OnInit{
       if (result.isConfirmed) {
         console.log("Entramos");
         //Borramos del actual array cargado
-        this.commentsList.slice(i,1);
+        this.commentsList.splice(i,1);
         this._blogService.deleteComment(id).subscribe();
+        Swal.fire({
+          icon: 'success',
+          title: 'Comment successfully deleted',
+          showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+          },
+          hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+          },
+          showConfirmButton: false,
+          timer: 1500
+        });
       }
     })
   }
@@ -83,6 +98,7 @@ export class ComentsComponent implements OnInit{
     };
 
     Swal.fire({
+      icon:'question',
       title: 'Do you want send this comment?',
       showDenyButton: true,
       confirmButtonText: 'Confirm',
@@ -90,7 +106,23 @@ export class ComentsComponent implements OnInit{
     }).then((result) => {
       if (result.isConfirmed) {
         this._blogService.newComment(objComment);
-        this.router.navigate(['/comments']);
+        Swal.fire({
+          icon: 'success',
+          title: 'Published comment',
+          showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+          },
+          hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+          },
+          showConfirmButton: false,
+          timer: 1500
+        })
+        setTimeout(function(){
+          if( localStorage.getItem('user') !== null){
+            window.location.reload();
+          }
+        }, 1500);
       }
     })
 
