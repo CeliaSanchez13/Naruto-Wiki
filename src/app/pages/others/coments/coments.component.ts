@@ -29,6 +29,8 @@ export class ComentsComponent implements OnInit{
   //Like y dislike
   likeSeleccionada:any = null;
   dislikeSeleccionada:any = null;
+  listLikes:any[] = [];
+  listDislikes:any[] = [];
   
   constructor( private _blogService:BlogService,
                private fb: FormBuilder,
@@ -104,8 +106,8 @@ export class ComentsComponent implements OnInit{
       user: this.userLog,
       like:0,
       dislike:0,
-      listLike: [''],
-      listDislike: ['']
+      listLike: ['inicial'],
+      listDislike: ['inicial']
     };
 
     Swal.fire({
@@ -139,19 +141,41 @@ export class ComentsComponent implements OnInit{
 
   }//Fin_save
 
-  like(id:string, likeSeleccionado: any){
+  like(likeSeleccionado: any){
+    let encontrado = false;
     //Ponemos el color
     this.likeSeleccionada = likeSeleccionado;
+    
+    //Buscamos usuario para saber si ha dado ya like o no
+    for( let i = 0; i <= likeSeleccionado.listLike.length; i++){
+      if(likeSeleccionado.listLike[i] === this.userLog){
+        console.log('encontrado, borramos...');
+        likeSeleccionado.like = likeSeleccionado.like-1;
+        likeSeleccionado.listLike.splice(i,1);
+        this._blogService.actualizarComment(likeSeleccionado).subscribe()
+        encontrado = true;
+      }
+    }
 
-    //Añadimos los valores a los objetos
+    if ( encontrado === false ){
+      console.log("no encontrado, creamos...");
+
+      likeSeleccionado.like = likeSeleccionado.like+1;
+      likeSeleccionado.listLike.push(this.userLog);
+      this._blogService.actualizarComment(likeSeleccionado).subscribe()
+    }
 
   }
 
-  dislike(id:string,dislikeSeleccionado: any){
+  dislike(dislikeSeleccionado: any){
     //Ponemos el color
     this.dislikeSeleccionada = dislikeSeleccionado;
+    //Cargamos el listado de los disLikes
 
     //Añadimos los valores a los objetos
+    this._blogService.actualizarComment(dislikeSeleccionado).subscribe(
+      resp => console.log("Dislike realizado "+resp)
+    )
   }
 
 }

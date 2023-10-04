@@ -4,4 +4,8 @@ export interface Comment {
     comment:    string;
     user:       string;
     image:      string;
+    like:       number;
+    dislike:    number;
+    likeList:   any[];
+    dislikeList:any[];
 }
