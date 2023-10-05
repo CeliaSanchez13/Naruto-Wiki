@@ -52,14 +52,16 @@
                 </div>
                 <div class="row px-1 pb-2 pb-3">
                     <div class="col-6 justify-content-end d-flex" 
-                         [class.likeSelect]="comment === likeSeleccionada">
+                         [class.likeSelect]="comment === likeSeleccionada"
+                         [class.quitarDisLike]="quitarLike">
                         <i class="fa-solid fa-thumbs-up px-2" 
                            (click)="like(comment)" 
                            style="cursor: pointer;"></i> 
                         <p *ngIf="comment.like > 0"> {{comment.like}} </p>
                     </div>
                     <div class="col justify-content-start d-flex" 
-                         [class.dislikeSelect]="comment === dislikeSeleccionada">
+                         [class.dislikeSelect]="comment === dislikeSeleccionada"
+                         [class.quitarDisLike]="quitarDislike">
                         <i class="fa-solid fa-thumbs-down px-2" 
                            (click)="dislike(comment)" 
                            style="cursor: pointer;"></i> 

@@ -17,6 +17,10 @@
 .likeSelect{
     color:green;
 }
+.quitarDisLike{
+    color:black;
+}
+
 .dislikeSelect{
     color:red;
 }

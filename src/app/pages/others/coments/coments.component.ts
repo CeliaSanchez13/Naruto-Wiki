@@ -29,8 +29,8 @@ export class ComentsComponent implements OnInit{
   //Like y dislike
   likeSeleccionada:any = null;
   dislikeSeleccionada:any = null;
-  listLikes:any[] = [];
-  listDislikes:any[] = [];
+  quitarLike= false
+  quitarDislike= false
   
   constructor( private _blogService:BlogService,
                private fb: FormBuilder,
@@ -142,14 +142,17 @@ export class ComentsComponent implements OnInit{
   }//Fin_save
 
   like(likeSeleccionado: any){
-    let encontrado = false;
-    //Ponemos el color
+    let encontrado = false
+    this.quitarLike= false;
+   
     this.likeSeleccionada = likeSeleccionado;
+    
     
     //Buscamos usuario para saber si ha dado ya like o no
     for( let i = 0; i <= likeSeleccionado.listLike.length; i++){
       if(likeSeleccionado.listLike[i] === this.userLog){
         console.log('encontrado, borramos...');
+        this.quitarLike = true;
         likeSeleccionado.like = likeSeleccionado.like-1;
         likeSeleccionado.listLike.splice(i,1);
         this._blogService.actualizarComment(likeSeleccionado).subscribe()
@@ -159,23 +162,42 @@ export class ComentsComponent implements OnInit{
 
     if ( encontrado === false ){
       console.log("no encontrado, creamos...");
-
+       //Ponemos el color verde
+      //Aplicamos en la bd
       likeSeleccionado.like = likeSeleccionado.like+1;
       likeSeleccionado.listLike.push(this.userLog);
       this._blogService.actualizarComment(likeSeleccionado).subscribe()
     }
 
   }
-
   dislike(dislikeSeleccionado: any){
-    //Ponemos el color
+    let encontrado = false
+    this.quitarDislike= false;
+   
     this.dislikeSeleccionada = dislikeSeleccionado;
-    //Cargamos el listado de los disLikes
+    
+    
+    //Buscamos usuario para saber si ha dado ya like o no
+    for( let i = 0; i <= dislikeSeleccionado.listDislike.length; i++){
+      if(dislikeSeleccionado.listDislike[i] === this.userLog){
+        console.log('encontrado, borramos...');
+        this.quitarDislike = true;
+        dislikeSeleccionado.dislike = dislikeSeleccionado.dislike-1;
+        dislikeSeleccionado.listDislike.splice(i,1);
+        this._blogService.actualizarComment(dislikeSeleccionado).subscribe()
+        encontrado = true;
+      }
+    }
 
-    //Añadimos los valores a los objetos
-    this._blogService.actualizarComment(dislikeSeleccionado).subscribe(
-      resp => console.log("Dislike realizado "+resp)
-    )
+    if ( encontrado === false ){
+      console.log("no encontrado, creamos...");
+       //Ponemos el color verde
+      //Aplicamos en la bd
+      dislikeSeleccionado.dislike = dislikeSeleccionado.dislike+1;
+      dislikeSeleccionado.listDislike.push(this.userLog);
+      this._blogService.actualizarComment(dislikeSeleccionado).subscribe()
+    }
+
   }
-
+  
 }

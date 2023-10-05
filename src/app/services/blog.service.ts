@@ -94,14 +94,4 @@ export class BlogService {
     return this.http.put(`${ this._servicesService.firebaseUrl}/mensajes/${ comment.id }.json`,commentTemp);
   }
 
-  //Obtener lista de likes por comentario
-  listaLikesByComment(comment:any){
-    return this.http.get(`${ this._servicesService.firebaseUrl}/mensajes/${comment.id}/listLike.json`)
-  }
-  borrarLikeByComment(comment:any, i:number){
-    return this.http.delete(`${ this._servicesService.firebaseUrl}/mensajes/${ comment.id }/${ i }.json`);
-  }
-  newLike(comment:any,i:number){
-    return this.http.post(`${ this._servicesService.firebaseUrl}/mensajes/${ comment.id }/listLike/${ i }.json`, comment);
-  }
 }
