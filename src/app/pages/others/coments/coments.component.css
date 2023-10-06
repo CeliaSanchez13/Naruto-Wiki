@@ -24,3 +24,7 @@
 .dislikeSelect{
     color:red;
 }
+
+.mostrarBoton{
+    visibility: hidden;
+}

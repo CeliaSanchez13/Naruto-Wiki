@@ -29,8 +29,8 @@ export class ComentsComponent implements OnInit{
   //Like y dislike
   likeSeleccionada:any = null;
   dislikeSeleccionada:any = null;
-  quitarLike= false
-  quitarDislike= false
+  quitarLike = false
+  quitarDis  = false
   
   constructor( private _blogService:BlogService,
                private fb: FormBuilder,
@@ -142,7 +142,7 @@ export class ComentsComponent implements OnInit{
   }//Fin_save
 
   like(likeSeleccionado: any){
-    let encontrado = false
+    let encontrado = false;
     this.quitarLike= false;
    
     this.likeSeleccionada = likeSeleccionado;
@@ -171,8 +171,8 @@ export class ComentsComponent implements OnInit{
 
   }
   dislike(dislikeSeleccionado: any){
-    let encontrado = false
-    this.quitarDislike= false;
+    let encontrado = false;
+    this.quitarDis= false;
    
     this.dislikeSeleccionada = dislikeSeleccionado;
     
@@ -181,7 +181,7 @@ export class ComentsComponent implements OnInit{
     for( let i = 0; i <= dislikeSeleccionado.listDislike.length; i++){
       if(dislikeSeleccionado.listDislike[i] === this.userLog){
         console.log('encontrado, borramos...');
-        this.quitarDislike = true;
+        this.quitarDis = true;
         dislikeSeleccionado.dislike = dislikeSeleccionado.dislike-1;
         dislikeSeleccionado.listDislike.splice(i,1);
         this._blogService.actualizarComment(dislikeSeleccionado).subscribe()

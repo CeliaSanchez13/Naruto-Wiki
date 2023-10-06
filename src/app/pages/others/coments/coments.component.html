@@ -36,8 +36,8 @@
                     <img [src] = comment.image style="height: 124.8px;" class="img-thumbnail">  
                 </div>
                 <div class="col-10">
-                    <div class="row mt-2" *ngIf="userLog === comment.user">
-                        <div class="col justify-content-end d-flex">
+                    <div class="row mt-2" style="display: block;">
+                        <div class="col justify-content-end d-flex" [class.mostrarBoton]="userLog !== comment.user">
                             <button type="button" id="botonReg" class="btn btn-outline-danger" style="background-color: transparent;" (click)="deleteComment( comment.id, i )"> <i class="fa-regular fa-trash-can"></i></button>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                     </div>
                     <div class="col justify-content-start d-flex" 
                          [class.dislikeSelect]="comment === dislikeSeleccionada"
-                         [class.quitarDisLike]="quitarDislike">
+                         [class.quitarDisLike]="quitarDis">
                         <i class="fa-solid fa-thumbs-down px-2" 
                            (click)="dislike(comment)" 
                            style="cursor: pointer;"></i> 
@@ -99,4 +99,104 @@
         </div>
     </div> 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
