@@ -63,11 +63,20 @@ export class LoginComponent implements OnInit{
           localStorage.setItem('date', `${ this.usuarios[i]?.date }`);
           localStorage.setItem('image', `${ this.usuarios[i]?.image }`);
 
+          //Cadena TODAY
           const DATE = new Date();
           let dateToday = DATE.toLocaleString().split(",",1);
           console.log(dateToday);
+          let resu = dateToday[0].split("/")
+          console.log(resu[0]+ " "+resu[1])
 
-          if ( localStorage.getItem('date') !== null && localStorage.getItem('date') === dateToday[0]){
+          //Cadena fecha en el usuario
+          let dateUsu=localStorage.getItem('date')
+          if ( dateUsu === null ) localStorage.setItem('date', '');
+          let resuUsu = dateUsu?.split("/");
+
+          // TODO:Arreglar la cadena del localStorage
+          if ( resuUsu && resuUsu.length > 0 && resuUsu[0] == dateToday[0] && resuUsu[1] == dateToday[1]){
             Swal.fire({
               title: 'Happy bday!!!',
               showConfirmButton: false,
