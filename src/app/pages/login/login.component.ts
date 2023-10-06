@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit{
             title: `Welcome ${ this.usuarios[i]?.user }`,
             text: 'User found!',
             showConfirmButton: false,
-            timer: 3000
+            timer: 4000
           });
 
           localStorage.setItem('email', `${ this.usuarios[i]?.email }`);
@@ -64,11 +64,37 @@ export class LoginComponent implements OnInit{
           localStorage.setItem('date', `${ this.usuarios[i]?.date }`);
           localStorage.setItem('image', `${ this.usuarios[i]?.image }`);
 
-          setTimeout(function(){
-            if( localStorage.getItem('user') !== null){
-              window.location.reload();
-            }
-          }, 3000);
+          const DATE = new Date();
+          let dateToday = DATE.toLocaleString().split(",",1);
+          console.log(dateToday);
+
+          if ( localStorage.getItem('date') !== null && localStorage.getItem('date') === dateToday[0]){
+            Swal.fire({
+              title: 'Happy bday!!!',
+              showConfirmButton: false,
+              width: 600,
+              padding: '3em',
+              color: '#716add',
+              backdrop: `
+                rgba(0,0,123,0.4)
+                url("assets/img/bday.gif")
+                left top
+                no-repeat
+              `
+            })
+            setTimeout(function(){
+              if( localStorage.getItem('user') !== null){
+                window.location.reload();
+              }
+            }, 5000);
+          }else{
+            setTimeout(function(){
+              if( localStorage.getItem('user') !== null){
+                window.location.reload();
+              }
+            }, 3000);
+          }
+
         }//Fin_if
       }   
     };//Fin_for
