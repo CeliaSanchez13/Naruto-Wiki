@@ -75,7 +75,7 @@ export class LoginComponent implements OnInit{
           if ( dateUsu === null ) localStorage.setItem('date', '');
           let resuUsu = dateUsu?.split("/");
 
-          // TODO:Arreglar la cadena del localStorage
+          // TODO:Arreglar la cadena del lo
           if ( resuUsu && resuUsu.length > 0 && resuUsu[0] == dateToday[0] && resuUsu[1] == dateToday[1]){
             Swal.fire({
               title: 'Happy bday!!!',
