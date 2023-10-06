@@ -1,12 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Subject, Subscription, debounceTime } from 'rxjs';
 
 @Component({
   selector: 'shared-search-box',
   templateUrl: './search-box.component.html'
 })
-export class SearchBoxComponent {
-
-
+export class SearchBoxComponent{
 
   @Input()
   placeholder: string = '';
@@ -14,10 +13,5 @@ export class SearchBoxComponent {
   @Input()
   initialValue: string = '';
 
-  //Metodos
-  /*
-  onKeyPress( searchTerm: string){
-    this.debouncer.next(searchTerm);
-  }*/
-
+  
 }

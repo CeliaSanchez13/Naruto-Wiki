@@ -1,10 +1,17 @@
-<input type="text"
-       value = "" 
-       placeholder="Search..." 
-       class="form-control"
-       (keyup.enter)="onKeyPress(txtInput.value)"
-       #txtInput>
+<div class="row">
+    <div class="col">
+    <input type="text"
+        value = "" 
+        placeholder="Search..." 
+        class="form-control"
+        (keyup.enter)="onKeyPress(txtInput.value)"
+        #txtInput>
+    </div>
+    <div class="col">
+        <button type="text" class="btn" (click)="onKeyPress(txtInput.value)" ><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+    </div>
 
+</div>
 <div *ngIf="array.length === 0; else table"
       class="alert alert-warning text-center mt-3">
       <div class="spinner-border" role="status">
