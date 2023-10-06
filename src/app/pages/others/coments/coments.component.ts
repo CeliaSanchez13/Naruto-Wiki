@@ -97,10 +97,15 @@ export class ComentsComponent implements OnInit{
     console.log(this.commentForm.value);
     // TODO: Hacer un objeto que será luego el que se guarde:
     // capturar el today y transformarlo
-    console.log(this.commentForm)
 
+    //Transformar la fecha del today
+    const DATE = new Date();
+    let dated = DATE.toLocaleString();
+        
+    console.log(this.commentForm)
+   
     let objComment = {
-      fecha:'',
+      fecha:dated,
       image: this.imgLog,
       text: this.commentForm.controls['comment'].value,
       user: this.userLog,
