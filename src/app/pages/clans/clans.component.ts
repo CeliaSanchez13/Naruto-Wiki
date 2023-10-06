@@ -5,8 +5,7 @@ import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-clans',
-  templateUrl: './clans.component.html',
-  styleUrls: ['./clans.component.css']
+  templateUrl: './clans.component.html'
 })
 export class ClansComponent implements OnInit{
 

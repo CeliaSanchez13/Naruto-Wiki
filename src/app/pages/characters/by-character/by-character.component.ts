@@ -5,8 +5,7 @@ import { ServicesService } from 'src/app/services/services.service';
 
 @Component({
   selector: 'app-by-character',
-  templateUrl: './by-character.component.html',
-  styleUrls: ['./by-character.component.css']
+  templateUrl: './by-character.component.html'
 })
 export class ByCharacterComponent implements OnInit,OnDestroy{
 

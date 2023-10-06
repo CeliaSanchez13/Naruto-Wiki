@@ -4,8 +4,7 @@ import { ServicesService } from 'src/app/services/services.service';
 
 @Component({
   selector: 'app-tailed-b',
-  templateUrl: './tailed-b.component.html',
-  styleUrls: ['./tailed-b.component.css']
+  templateUrl: './tailed-b.component.html'
 })
 export class TailedBComponent implements OnInit{
 

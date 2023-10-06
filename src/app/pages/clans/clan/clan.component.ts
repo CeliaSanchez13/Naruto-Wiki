@@ -5,8 +5,7 @@ import { ServicesService } from 'src/app/services/services.service';
 
 @Component({
   selector: 'app-clan',
-  templateUrl: './clan.component.html',
-  styleUrls: ['./clan.component.css']
+  templateUrl: './clan.component.html'
 })
 export class ClanComponent implements OnInit{
 
