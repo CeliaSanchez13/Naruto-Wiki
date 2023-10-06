@@ -12,7 +12,7 @@
 <ng-template #contenidoAka>
     <div class="contenido my-5 p-5" style="background-image: url('assets/img/akatsuki.jpg');">
         <div class="row">
-            <div class="card mx-2 my-3" style="width: 18rem; cursor: pointer;" 
+            <div class="card mx-2 my-3 animate__animated animate__fadeIn" style="width: 18rem; cursor: pointer;" 
                 *ngFor="let aka of akatsuki | slice: (page-1) * pageSize : page * pageSize" 
                 (click) = 'viewDataMember(aka.id)'>
                 <img *ngIf="aka.name === 'Mecha-Naruto' && aka.images.length === 0" src="assets/img/n-mecha.jpg" class="card-img-top p-2 mt-2" [alt]="aka.name">
